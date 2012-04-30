@@ -1,0 +1,18 @@
+NoBus
+=====
+
+Your favorite application requires dbus, uses it for nothing important,
+and gives no option to disable it?
+
+Forcing you to waste disk space and run an unnecessary daemon?
+
+
+Fear no more, for NoBus is here!
+
+
+Usage
+=====
+
+NoBus is a compile-time solution containing dbus stubs. Install it before
+building your application, and the binary won't have any requirement
+on dbus.
