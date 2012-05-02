@@ -5,7 +5,7 @@ OBJ = stubs.o
 PREFIX ?= /usr/local
 DESTDIR ?=
 
-CFLAGS += -Iinclude/dbus-1.0 -Wall
+CFLAGS += -Iinclude/dbus-1.0 -Wall -fPIC
 CFLAGS += $(shell pkg-config --cflags glib-2.0)
 
 LDFLAGS += -Wl,-O1
