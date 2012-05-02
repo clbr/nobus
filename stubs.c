@@ -3,7 +3,6 @@
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
 
-#ifndef DBUS_ADDRESS_H
 
 
 
@@ -39,7 +38,6 @@ char* dbus_address_unescape_value (const char *value,
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
 
-#ifndef DBUS_BUS_H
 
 
 
@@ -98,7 +96,6 @@ dbus_bool_t dbus_bus_start_service_by_name (DBusConnection *connection,
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
 
-#ifndef DBUS_CONNECTION_H
 
 
 
@@ -432,7 +429,6 @@ dbus_bool_t dbus_timeout_get_enabled (DBusTimeout *timeout);
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
 
-#ifndef DBUS_ERROR_H
 
 
 
@@ -1129,7 +1125,6 @@ org_freedesktop_DBus_get_id_async (DBusGProxy *proxy, org_freedesktop_DBus_get_i
 
 
 
-#ifndef DBUS_GLIB_H
 
 
 
@@ -1326,13 +1321,11 @@ typedef struct {
  gpointer userdata;
 } DBusGAsyncData;
 
-#undef DBUS_INSIDE_DBUS_GLIB_H
 
 
 #endif
 
 
-#ifndef DBUS_GLIB_LOWLEVEL_H
 
 
 
@@ -1362,7 +1355,6 @@ DBusMessage* dbus_g_method_get_reply (DBusGMethodInvocation *context);
 
 
 
-#ifndef DBUS_GOBJECT_TYPE_SPECIALIZED_H
 
 
 
@@ -1493,7 +1485,6 @@ const DBusGTypeSpecializedStructVtable* dbus_g_type_struct_peek_vtable (GType st
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
 
-#ifndef DBUS_MEMORY_H
 
 
 
@@ -1532,7 +1523,6 @@ typedef void (* DBusFreeFunction) (void *memory);
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
 
-#ifndef DBUS_MESSAGE_H
 
 
 
@@ -1783,7 +1773,6 @@ int dbus_message_demarshal_bytes_needed (const char *str,
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
 
-#ifndef DBUS_MISC_H
 
 
 
@@ -1803,7 +1792,6 @@ char* dbus_get_local_machine_id (void);
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
 
-#ifndef DBUS_PENDING_CALL_H
 
 
 
@@ -1844,7 +1832,6 @@ void* dbus_pending_call_get_data (DBusPendingCall *pending,
 
 
 
-#ifndef DBUS_PROTOCOL_H
 
 
 
@@ -2055,7 +2042,6 @@ extern "C" {
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
 
-#ifndef DBUS_SERVER_H
 
 
 
@@ -2119,7 +2105,6 @@ void* dbus_server_get_data (DBusServer *server,
 
 
 
-#ifndef DBUS_SHARED_H
 
 
 
@@ -2189,7 +2174,6 @@ typedef enum
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
 
-#ifndef DBUS_SIGNATURES_H
 
 
 
@@ -2245,7 +2229,6 @@ dbus_bool_t dbus_type_is_fixed (int typecode);
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
 
-#ifndef DBUS_THREADS_H
 
 
 
@@ -2356,7 +2339,6 @@ dbus_bool_t dbus_threads_init_default (void);
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
 
-#ifndef DBUS_TYPES_H
 
 
 typedef dbus_uint32_t dbus_unichar_t;
