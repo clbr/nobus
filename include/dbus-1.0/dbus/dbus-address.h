@@ -51,8 +51,7 @@ const char *dbus_address_entry_get_value  (DBusAddressEntry   *entry,
 
 const char *dbus_address_entry_get_method (DBusAddressEntry   *entry);
 
-void        dbus_address_entries_free     (DBusAddressEntry  **entries);
-
+#define dbus_address_entries_free(e) ((void)0)
 
 char* dbus_address_escape_value   (const char *value);
 
