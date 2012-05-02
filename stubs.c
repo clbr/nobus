@@ -1,5 +1,3 @@
-#if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
-#endif
 dbus_bool_t dbus_parse_address (const char *address,
  DBusAddressEntry ***entry,
  int *array_len,
@@ -10,9 +8,6 @@ const char *dbus_address_entry_get_method (DBusAddressEntry *entry);
 char* dbus_address_escape_value (const char *value);
 char* dbus_address_unescape_value (const char *value,
  DBusError *error);
-#endif
-#if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
-#endif
 DBusConnection *dbus_bus_get (DBusBusType type,
  DBusError *error);
 DBusConnection *dbus_bus_get_private (DBusBusType type,
@@ -42,9 +37,6 @@ dbus_bool_t dbus_bus_start_service_by_name (DBusConnection *connection,
  dbus_uint32_t flags,
  dbus_uint32_t *reply,
  DBusError *error);
-#endif
-#if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
-#endif
 DBusConnection* dbus_connection_open (const char *address,
  DBusError *error);
 DBusConnection* dbus_connection_open_private (const char *address,
@@ -145,9 +137,7 @@ dbus_bool_t dbus_connection_get_unix_fd (DBusConnection *connection,
  int *fd);
 dbus_bool_t dbus_connection_get_socket (DBusConnection *connection,
  int *fd);
-#ifndef DBUS_DISABLE_DEPRECATED
 DBUS_DEPRECATED int dbus_watch_get_fd (DBusWatch *watch);
-#endif
 int dbus_watch_get_unix_fd (DBusWatch *watch);
 int dbus_watch_get_socket (DBusWatch *watch);
 unsigned int dbus_watch_get_flags (DBusWatch *watch);
@@ -159,13 +149,9 @@ int dbus_timeout_get_interval (DBusTimeout *timeout);
 void* dbus_timeout_get_data (DBusTimeout *timeout);
 dbus_bool_t dbus_timeout_handle (DBusTimeout *timeout);
 dbus_bool_t dbus_timeout_get_enabled (DBusTimeout *timeout);
-#endif
-#if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
-#endif
 dbus_bool_t dbus_error_has_name (const DBusError *error,
  const char *name);
 dbus_bool_t dbus_error_is_set (const DBusError *error);
-#endif
 GType dbus_g_connection_get_g_type (void) G_GNUC_CONST;
 GType dbus_g_message_get_g_type (void) G_GNUC_CONST;
 DBusGConnection* dbus_g_connection_ref (DBusGConnection *connection);
@@ -180,9 +166,6 @@ DBusGConnection* dbus_g_bus_get (DBusBusType type,
  GError **error);
 GObject * dbus_g_connection_lookup_g_object (DBusGConnection *connection,
  const char *at_path);
-#ifdef DBUS_COMPILATION
-#else
-#endif
 GType dbus_g_object_path_get_g_type (void) G_GNUC_CONST;
 GType dbus_g_proxy_get_type (void) G_GNUC_CONST;
 DBusGProxy* dbus_g_proxy_new_for_name (DBusGConnection *connection,
@@ -242,7 +225,6 @@ DBusGConnection* dbus_connection_get_g_connection (DBusConnection *connection);
 DBusMessage* dbus_g_message_get_message (DBusGMessage *gmessage);
 gchar* dbus_g_method_get_sender (DBusGMethodInvocation *context);
 DBusMessage* dbus_g_method_get_reply (DBusGMethodInvocation *context);
-#endif
 GType dbus_g_type_get_collection (const char *container,
  GType specialization);
 GType dbus_g_type_get_map (const char *container,
@@ -284,9 +266,6 @@ const DBusGTypeSpecializedCollectionVtable* dbus_g_type_collection_peek_vtable (
 const DBusGTypeSpecializedMapVtable* dbus_g_type_map_peek_vtable (GType map_type);
 const DBusGTypeSpecializedCollectionVtable* dbus_g_type_collection_peek_vtable (GType collection_type);
 const DBusGTypeSpecializedStructVtable* dbus_g_type_struct_peek_vtable (GType struct_type);
-#endif
-#if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
-#endif
 DBUS_MALLOC
 DBUS_ALLOC_SIZE(1)
 void* dbus_malloc (size_t bytes);
@@ -297,9 +276,6 @@ DBUS_MALLOC
 DBUS_ALLOC_SIZE(2)
 void* dbus_realloc (void *memory,
  size_t bytes);
-#endif
-#if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
-#endif
 DBusMessage* dbus_message_new (int message_type);
 DBusMessage* dbus_message_new_method_call (const char *bus_name,
  const char *path,
@@ -388,9 +364,7 @@ dbus_bool_t dbus_message_iter_next (DBusMessageIter *iter);
 char* dbus_message_iter_get_signature (DBusMessageIter *iter);
 int dbus_message_iter_get_arg_type (DBusMessageIter *iter);
 int dbus_message_iter_get_element_type (DBusMessageIter *iter);
-#ifndef DBUS_DISABLE_DEPRECATED
 DBUS_DEPRECATED int dbus_message_iter_get_array_len (DBusMessageIter *iter);
-#endif
 dbus_bool_t dbus_message_iter_append_basic (DBusMessageIter *iter,
  int type,
  const void *value);
@@ -423,13 +397,7 @@ DBusMessage* dbus_message_demarshal (const char *str,
  DBusError *error);
 int dbus_message_demarshal_bytes_needed (const char *str,
  int len);
-#endif
-#if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
-#endif
 char* dbus_get_local_machine_id (void);
-#endif
-#if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
-#endif
 DBusPendingCall* dbus_pending_call_ref (DBusPendingCall *pending);
 dbus_bool_t dbus_pending_call_set_notify (DBusPendingCall *pending,
  DBusPendingCallNotifyFunction function,
@@ -444,13 +412,8 @@ dbus_bool_t dbus_pending_call_set_data (DBusPendingCall *pending,
  DBusFreeFunction free_data_func);
 void* dbus_pending_call_get_data (DBusPendingCall *pending,
  dbus_int32_t slot);
-#endif
-#ifdef __cplusplus
 extern "C" {
-#if 0
 }
-#endif
-#endif
  DBUS_TYPE_BYTE_AS_STRING \
  DBUS_TYPE_BYTE_AS_STRING \
  DBUS_TYPE_BYTE_AS_STRING \
@@ -462,15 +425,8 @@ extern "C" {
  DBUS_TYPE_BYTE_AS_STRING \
  DBUS_TYPE_VARIANT_AS_STRING \
  DBUS_STRUCT_END_CHAR_AS_STRING
-#ifdef __cplusplus
-#if 0
 {
-#endif
 }
-#endif
-#endif
-#if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
-#endif
 DBusServer* dbus_server_listen (const char *address,
  DBusError *error);
 DBusServer* dbus_server_ref (DBusServer *server);
@@ -498,22 +454,10 @@ dbus_bool_t dbus_server_set_data (DBusServer *server,
  DBusFreeFunction free_data_func);
 void* dbus_server_get_data (DBusServer *server,
  int slot);
-#endif
-#ifdef __cplusplus
 extern "C" {
-#if 0
 }
-#endif
-#endif
-#ifdef __cplusplus
-#if 0
 {
-#endif
 }
-#endif
-#endif
-#if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
-#endif
 int dbus_signature_iter_get_current_type (const DBusSignatureIter *iter);
 char * dbus_signature_iter_get_signature (const DBusSignatureIter *iter);
 int dbus_signature_iter_get_element_type (const DBusSignatureIter *iter);
@@ -525,12 +469,5 @@ dbus_bool_t dbus_signature_validate_single (const char *signature,
 dbus_bool_t dbus_type_is_basic (int typecode);
 dbus_bool_t dbus_type_is_container (int typecode);
 dbus_bool_t dbus_type_is_fixed (int typecode);
-#endif
-#if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
-#endif
 dbus_bool_t dbus_threads_init (const DBusThreadFunctions *functions);
 dbus_bool_t dbus_threads_init_default (void);
-#endif
-#if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
-#endif
-#endif
