@@ -12,12 +12,12 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  *
  */
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
@@ -43,47 +43,47 @@ DBUS_BEGIN_DECLS
  */
 typedef struct
 {
-  void *dummy1;         /**< Don't use this */
-  void *dummy2;         /**< Don't use this */
-  dbus_uint32_t dummy8; /**< Don't use this */
-  int dummy12;           /**< Don't use this */
-  int dummy17;           /**< Don't use this */
+ void *dummy1; /**< Don't use this */
+ void *dummy2; /**< Don't use this */
+ dbus_uint32_t dummy8; /**< Don't use this */
+ int dummy12; /**< Don't use this */
+ int dummy17; /**< Don't use this */
 } DBusSignatureIter;
 
 
-void            dbus_signature_iter_init             (DBusSignatureIter       *iter,
-						      const char              *signature);
+void dbus_signature_iter_init (DBusSignatureIter *iter,
+ const char *signature);
 
 
-int             dbus_signature_iter_get_current_type (const DBusSignatureIter *iter);
+int dbus_signature_iter_get_current_type (const DBusSignatureIter *iter);
 
 
-char *          dbus_signature_iter_get_signature    (const DBusSignatureIter *iter);
+char * dbus_signature_iter_get_signature (const DBusSignatureIter *iter);
 
 
-int             dbus_signature_iter_get_element_type (const DBusSignatureIter *iter);
+int dbus_signature_iter_get_element_type (const DBusSignatureIter *iter);
 
 
-dbus_bool_t     dbus_signature_iter_next             (DBusSignatureIter       *iter);
+dbus_bool_t dbus_signature_iter_next (DBusSignatureIter *iter);
 
 
-void            dbus_signature_iter_recurse          (const DBusSignatureIter *iter,
-						      DBusSignatureIter       *subiter);
+void dbus_signature_iter_recurse (const DBusSignatureIter *iter,
+ DBusSignatureIter *subiter);
 
 
-dbus_bool_t     dbus_signature_validate              (const char       *signature,
-						      DBusError        *error);
+dbus_bool_t dbus_signature_validate (const char *signature,
+ DBusError *error);
 
 
-dbus_bool_t     dbus_signature_validate_single       (const char       *signature,
-						      DBusError        *error);
+dbus_bool_t dbus_signature_validate_single (const char *signature,
+ DBusError *error);
 
 
-dbus_bool_t     dbus_type_is_basic                   (int            typecode);
+dbus_bool_t dbus_type_is_basic (int typecode);
 
-dbus_bool_t     dbus_type_is_container               (int            typecode);
+dbus_bool_t dbus_type_is_container (int typecode);
 
-dbus_bool_t     dbus_type_is_fixed                   (int            typecode);
+dbus_bool_t dbus_type_is_fixed (int typecode);
 
 /** @} */
 

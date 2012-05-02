@@ -1,7 +1,7 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-/* dbus-memory.h  D-Bus memory handling
+/* dbus-memory.h D-Bus memory handling
  *
- * Copyright (C) 2002  Red Hat Inc.
+ * Copyright (C) 2002 Red Hat Inc.
  *
  * Licensed under the Academic Free License version 2.1
  *
@@ -12,12 +12,12 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  *
  */
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
@@ -40,22 +40,22 @@ DBUS_BEGIN_DECLS
 
 DBUS_MALLOC
 DBUS_ALLOC_SIZE(1)
-void* dbus_malloc        (size_t bytes);
+void* dbus_malloc (size_t bytes);
 
 
 DBUS_MALLOC
 DBUS_ALLOC_SIZE(1)
-void* dbus_malloc0       (size_t bytes);
+void* dbus_malloc0 (size_t bytes);
 
 
 DBUS_MALLOC
 DBUS_ALLOC_SIZE(2)
-void* dbus_realloc       (void  *memory,
-                          size_t bytes);
+void* dbus_realloc (void *memory,
+ size_t bytes);
 
-void  dbus_free          (void  *memory);
+void dbus_free (void *memory);
 
-#define dbus_new(type, count)  ((type*)dbus_malloc (sizeof (type) * (count)))
+#define dbus_new(type, count) ((type*)dbus_malloc (sizeof (type) * (count)))
 #define dbus_new0(type, count) ((type*)dbus_malloc0 (sizeof (type) * (count)))
 
 

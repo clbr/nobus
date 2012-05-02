@@ -1,5 +1,5 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-/* dbus-misc.h  A few assorted public functions that don't fit elsewhere
+/* dbus-misc.h A few assorted public functions that don't fit elsewhere
  *
  * Copyright (C) 2006 Red Hat, Inc.
  *
@@ -12,12 +12,12 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  *
  */
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
@@ -37,12 +37,12 @@ DBUS_BEGIN_DECLS
  * @{
  */
 
-char*       dbus_get_local_machine_id  (void);
+char* dbus_get_local_machine_id (void);
 
 
-void        dbus_get_version           (int *major_version_p,
-                                        int *minor_version_p,
-                                        int *micro_version_p);
+void dbus_get_version (int *major_version_p,
+ int *minor_version_p,
+ int *micro_version_p);
 
 /** @} */
 

@@ -1,7 +1,7 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-/* dbus-types.h  types such as dbus_bool_t
+/* dbus-types.h types such as dbus_bool_t
  *
- * Copyright (C) 2002  Red Hat Inc.
+ * Copyright (C) 2002 Red Hat Inc.
  *
  * Licensed under the Academic Free License version 2.1
  *
@@ -12,12 +12,12 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  *
  */
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
@@ -30,14 +30,14 @@
 #include <stddef.h>
 #include <dbus/dbus-arch-deps.h>
 
-typedef dbus_uint32_t  dbus_unichar_t;
+typedef dbus_uint32_t dbus_unichar_t;
 /* boolean size must be fixed at 4 bytes due to wire protocol! */
-typedef dbus_uint32_t  dbus_bool_t;
+typedef dbus_uint32_t dbus_bool_t;
 
 /* Normally docs are in .c files, but there isn't a .c file for this. */
 /**
  * @defgroup DBusTypes Basic types
- * @ingroup  DBus
+ * @ingroup DBus
  * @brief dbus_bool_t, dbus_int32_t, etc.
  *
  * Typedefs for common primitive types.
