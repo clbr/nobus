@@ -927,114 +927,192 @@ dbus_bool_t dbus_message_iter_close_container (DBusMessageIter *iter,
 }
 
 dbus_bool_t dbus_set_error_from_message (DBusError *error,
- DBusMessage *message);
+ DBusMessage *message) {
+	return TRUE;
+}
 
-dbus_bool_t dbus_message_allocate_data_slot (dbus_int32_t *slot_p);
+dbus_bool_t dbus_message_allocate_data_slot (dbus_int32_t *slot_p) {
+	return FALSE;
+}
 
 dbus_bool_t dbus_message_set_data (DBusMessage *message,
  dbus_int32_t slot,
  void *data,
- DBusFreeFunction free_data_func);
+ DBusFreeFunction free_data_func) {
+	return TRUE;
+}
 
 void* dbus_message_get_data (DBusMessage *message,
- dbus_int32_t slot);
+ dbus_int32_t slot) {
+	return NULL;
+}
 
-int dbus_message_type_from_string (const char *type_str);
+int dbus_message_type_from_string (const char *type_str) {
+	return 0;
+}
 
-const char* dbus_message_type_to_string (int type);
+const char* dbus_message_type_to_string (int type) {
+	return empty;
+}
 
 dbus_bool_t dbus_message_marshal (DBusMessage *msg,
  char **marshalled_data_p,
- int *len_p);
+ int *len_p) {
+	return FALSE;
+}
 
 DBusMessage* dbus_message_demarshal (const char *str,
  int len,
- DBusError *error);
+ DBusError *error) {
+	return NULL;
+}
 
 int dbus_message_demarshal_bytes_needed (const char *str,
- int len);
+ int len) {
+	return 0;
+}
 
-char* dbus_get_local_machine_id (void);
+char* dbus_get_local_machine_id (void) {
+	return strdup(empty);
+}
 
-DBusPendingCall* dbus_pending_call_ref (DBusPendingCall *pending);
+DBusPendingCall* dbus_pending_call_ref (DBusPendingCall *pending) {
+	return NULL;
+}
 
 dbus_bool_t dbus_pending_call_set_notify (DBusPendingCall *pending,
  DBusPendingCallNotifyFunction function,
  void *user_data,
- DBusFreeFunction free_user_data);
+ DBusFreeFunction free_user_data) {
+	return TRUE;
+}
 
-dbus_bool_t dbus_pending_call_get_completed (DBusPendingCall *pending);
+dbus_bool_t dbus_pending_call_get_completed (DBusPendingCall *pending) {
+	return TRUE;
+}
 
-DBusMessage* dbus_pending_call_steal_reply (DBusPendingCall *pending);
+DBusMessage* dbus_pending_call_steal_reply (DBusPendingCall *pending) {
+	return NULL;
+}
 
-dbus_bool_t dbus_pending_call_allocate_data_slot (dbus_int32_t *slot_p);
+dbus_bool_t dbus_pending_call_allocate_data_slot (dbus_int32_t *slot_p) {
+	return FALSE;
+}
 
 dbus_bool_t dbus_pending_call_set_data (DBusPendingCall *pending,
  dbus_int32_t slot,
  void *data,
- DBusFreeFunction free_data_func);
+ DBusFreeFunction free_data_func) {
+	return TRUE;
+}
 
 void* dbus_pending_call_get_data (DBusPendingCall *pending,
- dbus_int32_t slot);
+ dbus_int32_t slot) {
+	return NULL;
+}
 
 DBusServer* dbus_server_listen (const char *address,
- DBusError *error);
+ DBusError *error) {
+	return NULL;
+}
 
-DBusServer* dbus_server_ref (DBusServer *server);
+DBusServer* dbus_server_ref (DBusServer *server) {
+	return server;
+}
 
-dbus_bool_t dbus_server_get_is_connected (DBusServer *server);
+dbus_bool_t dbus_server_get_is_connected (DBusServer *server) {
+	return TRUE;
+}
 
-char* dbus_server_get_address (DBusServer *server);
+char* dbus_server_get_address (DBusServer *server) {
+	return strdup(empty);
+}
 
-char* dbus_server_get_id (DBusServer *server);
+char* dbus_server_get_id (DBusServer *server) {
+	return strdup(empty);
+}
 
 dbus_bool_t dbus_server_set_watch_functions (DBusServer *server,
  DBusAddWatchFunction add_function,
  DBusRemoveWatchFunction remove_function,
  DBusWatchToggledFunction toggled_function,
  void *data,
- DBusFreeFunction free_data_function);
+ DBusFreeFunction free_data_function) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_server_set_timeout_functions (DBusServer *server,
  DBusAddTimeoutFunction add_function,
  DBusRemoveTimeoutFunction remove_function,
  DBusTimeoutToggledFunction toggled_function,
  void *data,
- DBusFreeFunction free_data_function);
+ DBusFreeFunction free_data_function) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_server_set_auth_mechanisms (DBusServer *server,
- const char **mechanisms);
+ const char **mechanisms) {
+	return TRUE;
+}
 
-dbus_bool_t dbus_server_allocate_data_slot (dbus_int32_t *slot_p);
+dbus_bool_t dbus_server_allocate_data_slot (dbus_int32_t *slot_p) {
+	return FALSE;
+}
 
 dbus_bool_t dbus_server_set_data (DBusServer *server,
  int slot,
  void *data,
- DBusFreeFunction free_data_func);
+ DBusFreeFunction free_data_func) {
+	return TRUE;
+}
 
 void* dbus_server_get_data (DBusServer *server,
- int slot);
+ int slot) {
+	return NULL;
+}
 
-int dbus_signature_iter_get_current_type (const DBusSignatureIter *iter);
+int dbus_signature_iter_get_current_type (const DBusSignatureIter *iter) {
+	return 0;
+}
 
-char * dbus_signature_iter_get_signature (const DBusSignatureIter *iter);
+char * dbus_signature_iter_get_signature (const DBusSignatureIter *iter) {
+	return strdup(empty);
+}
 
-int dbus_signature_iter_get_element_type (const DBusSignatureIter *iter);
+int dbus_signature_iter_get_element_type (const DBusSignatureIter *iter) {
+	return 0;
+}
 
-dbus_bool_t dbus_signature_iter_next (DBusSignatureIter *iter);
+dbus_bool_t dbus_signature_iter_next (DBusSignatureIter *iter) {
+	return FALSE;
+}
 
 dbus_bool_t dbus_signature_validate (const char *signature,
- DBusError *error);
+ DBusError *error) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_signature_validate_single (const char *signature,
- DBusError *error);
+ DBusError *error) {
+	return TRUE;
+}
 
-dbus_bool_t dbus_type_is_basic (int typecode);
+dbus_bool_t dbus_type_is_basic (int typecode) {
+	return TRUE;
+}
 
-dbus_bool_t dbus_type_is_container (int typecode);
+dbus_bool_t dbus_type_is_container (int typecode) {
+	return FALSE;
+}
 
-dbus_bool_t dbus_type_is_fixed (int typecode);
+dbus_bool_t dbus_type_is_fixed (int typecode) {
+	return FALSE;
+}
 
-dbus_bool_t dbus_threads_init (const DBusThreadFunctions *functions);
+dbus_bool_t dbus_threads_init (const DBusThreadFunctions *functions) {
+	return TRUE;
+}
 
-dbus_bool_t dbus_threads_init_default (void);
+dbus_bool_t dbus_threads_init_default() {
+	return TRUE;
+}
