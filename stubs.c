@@ -6,7 +6,6 @@
 #ifndef DBUS_ADDRESS_H
 
 
-DBUS_BEGIN_DECLS
 
 
 
@@ -32,7 +31,6 @@ char* dbus_address_unescape_value (const char *value,
 
 
 
-DBUS_END_DECLS
 
 #endif
 
@@ -44,7 +42,6 @@ DBUS_END_DECLS
 #ifndef DBUS_BUS_H
 
 
-DBUS_BEGIN_DECLS
 
 
 
@@ -94,7 +91,6 @@ dbus_bool_t dbus_bus_start_service_by_name (DBusConnection *connection,
 
 
 
-DBUS_END_DECLS
 
 #endif
 
@@ -105,7 +101,6 @@ DBUS_END_DECLS
 #ifndef DBUS_CONNECTION_H
 
 
-DBUS_BEGIN_DECLS
 
 
 
@@ -430,7 +425,6 @@ dbus_bool_t dbus_timeout_get_enabled (DBusTimeout *timeout);
 
 
 
-DBUS_END_DECLS
 
 #endif
 
@@ -441,7 +435,6 @@ DBUS_END_DECLS
 #ifndef DBUS_ERROR_H
 
 
-DBUS_BEGIN_DECLS
 
 
 
@@ -477,13 +470,11 @@ dbus_bool_t dbus_error_is_set (const DBusError *error);
 
 
 
-DBUS_END_DECLS
 
 #endif
 
 
 
-G_BEGIN_DECLS
 
 #ifndef DBUS_GLIB_CLIENT_WRAPPERS_org_freedesktop_DBus_Introspectable
 
@@ -1136,13 +1127,11 @@ org_freedesktop_DBus_get_id_async (DBusGProxy *proxy, org_freedesktop_DBus_get_i
 }
 #endif
 
-G_END_DECLS
 
 
 #ifndef DBUS_GLIB_H
 
 
-G_BEGIN_DECLS
 
 
 
@@ -1339,7 +1328,6 @@ typedef struct {
 
 #undef DBUS_INSIDE_DBUS_GLIB_H
 
-G_END_DECLS
 
 #endif
 
@@ -1347,7 +1335,6 @@ G_END_DECLS
 #ifndef DBUS_GLIB_LOWLEVEL_H
 
 
-G_BEGIN_DECLS
 
 
 GType dbus_connection_get_g_type (void) G_GNUC_CONST;
@@ -1367,7 +1354,6 @@ gchar* dbus_g_method_get_sender (DBusGMethodInvocation *context);
 DBusMessage* dbus_g_method_get_reply (DBusGMethodInvocation *context);
 
 
-G_END_DECLS
 
 #endif
 
@@ -1379,7 +1365,6 @@ G_END_DECLS
 #ifndef DBUS_GOBJECT_TYPE_SPECIALIZED_H
 
 
-G_BEGIN_DECLS
 
 GType dbus_g_type_get_collection (const char *container,
  GType specialization);
@@ -1500,7 +1485,6 @@ const DBusGTypeSpecializedCollectionVtable* dbus_g_type_collection_peek_vtable (
 
 const DBusGTypeSpecializedStructVtable* dbus_g_type_struct_peek_vtable (GType struct_type);
 
-G_END_DECLS
 
 #endif
 
@@ -1512,7 +1496,6 @@ G_END_DECLS
 #ifndef DBUS_MEMORY_H
 
 
-DBUS_BEGIN_DECLS
 
 
 
@@ -1542,7 +1525,6 @@ typedef void (* DBusFreeFunction) (void *memory);
 
 
 
-DBUS_END_DECLS
 
 #endif
 
@@ -1553,7 +1535,6 @@ DBUS_END_DECLS
 #ifndef DBUS_MESSAGE_H
 
 
-DBUS_BEGIN_DECLS
 
 
 
@@ -1795,7 +1776,6 @@ int dbus_message_demarshal_bytes_needed (const char *str,
 
 
 
-DBUS_END_DECLS
 
 #endif
 
@@ -1806,7 +1786,6 @@ DBUS_END_DECLS
 #ifndef DBUS_MISC_H
 
 
-DBUS_BEGIN_DECLS
 
 
 
@@ -1816,7 +1795,6 @@ char* dbus_get_local_machine_id (void);
 
 
 
-DBUS_END_DECLS
 
 #endif
 
@@ -1828,7 +1806,6 @@ DBUS_END_DECLS
 #ifndef DBUS_PENDING_CALL_H
 
 
-DBUS_BEGIN_DECLS
 
 
 
@@ -1862,7 +1839,6 @@ void* dbus_pending_call_get_data (DBusPendingCall *pending,
 
 
 
-DBUS_END_DECLS
 
 #endif
 
@@ -2082,7 +2058,6 @@ extern "C" {
 #ifndef DBUS_SERVER_H
 
 
-DBUS_BEGIN_DECLS
 
 
 
@@ -2139,7 +2114,6 @@ void* dbus_server_get_data (DBusServer *server,
 
 
 
-DBUS_END_DECLS
 
 #endif
 
@@ -2218,7 +2192,6 @@ typedef enum
 #ifndef DBUS_SIGNATURES_H
 
 
-DBUS_BEGIN_DECLS
 
 
 
@@ -2265,7 +2238,6 @@ dbus_bool_t dbus_type_is_fixed (int typecode);
 
 
 
-DBUS_END_DECLS
 
 #endif
 
@@ -2276,7 +2248,6 @@ DBUS_END_DECLS
 #ifndef DBUS_THREADS_H
 
 
-DBUS_BEGIN_DECLS
 
 
 
@@ -2378,7 +2349,6 @@ dbus_bool_t dbus_threads_init_default (void);
 
 
 
-DBUS_END_DECLS
 
 #endif
 
