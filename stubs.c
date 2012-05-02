@@ -29,22 +29,34 @@ char* dbus_address_unescape_value (const char *value,
 }
 
 DBusConnection *dbus_bus_get (DBusBusType type,
- DBusError *error);
+ DBusError *error) {
+	return NULL;
+}
 
 DBusConnection *dbus_bus_get_private (DBusBusType type,
- DBusError *error);
+ DBusError *error) {
+	return NULL;
+}
 
 dbus_bool_t dbus_bus_register (DBusConnection *connection,
- DBusError *error);
+ DBusError *error) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_bus_set_unique_name (DBusConnection *connection,
- const char *unique_name);
+ const char *unique_name) {
+	return TRUE;
+}
 
-const char* dbus_bus_get_unique_name (DBusConnection *connection);
+const char* dbus_bus_get_unique_name (DBusConnection *connection) {
+	return empty;
+}
 
 unsigned long dbus_bus_get_unix_user (DBusConnection *connection,
  const char *name,
- DBusError *error);
+ DBusError *error) {
+	return -1;
+}
 
 char* dbus_bus_get_id (DBusConnection *connection,
  DBusError *error);
