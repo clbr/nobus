@@ -1,6 +1,7 @@
 #include "include/dbus-1.0/dbus/dbus.h"
 #include "include/dbus-1.0/dbus/dbus-glib.h"
 #include <string.h>
+#include <stdlib.h>
 
 static const char *empty = "";
 
@@ -517,113 +518,167 @@ const char* dbus_g_proxy_get_interface (DBusGProxy *proxy) {
 	return empty;
 }
 
-GType dbus_connection_get_g_type (void);
+GType dbus_connection_get_g_type() {
+	return 0;
+}
 
-GType dbus_message_get_g_type (void);
+GType dbus_message_get_g_type() {
+	return 0;
+}
 
-GType dbus_pending_call_get_g_type (void);
+GType dbus_pending_call_get_g_type() {
+	return 0;
+}
 
-DBusConnection* dbus_g_connection_get_connection (DBusGConnection *gconnection);
+DBusConnection* dbus_g_connection_get_connection (DBusGConnection *gconnection) {
+	return NULL;
+}
 
-DBusGConnection* dbus_connection_get_g_connection (DBusConnection *connection);
+DBusGConnection* dbus_connection_get_g_connection (DBusConnection *connection) {
+	return NULL;
+}
 
-DBusMessage* dbus_g_message_get_message (DBusGMessage *gmessage);
+DBusMessage* dbus_g_message_get_message (DBusGMessage *gmessage) {
+	return NULL;
+}
 
-gchar* dbus_g_method_get_sender (DBusGMethodInvocation *context);
+gchar* dbus_g_method_get_sender (DBusGMethodInvocation *context) {
+	return strdup(empty);
+}
 
-DBusMessage* dbus_g_method_get_reply (DBusGMethodInvocation *context);
+DBusMessage* dbus_g_method_get_reply (DBusGMethodInvocation *context) {
+	return NULL;
+}
 
 GType dbus_g_type_get_collection (const char *container,
- GType specialization);
+ GType specialization) {
+	return 0;
+}
 
 GType dbus_g_type_get_map (const char *container,
  GType key_specialization,
- GType value_specialization);
+ GType value_specialization) {
+	return 0;
+}
 
 GType dbus_g_type_get_structv (const char *container,
  guint num_members,
- GType *types);
+ GType *types) {
+	return 0;
+}
 
 GType dbus_g_type_get_struct (const char *container,
  GType first_type,
- ...);
+ ...) {
+	return 0;
+}
 
-gboolean dbus_g_type_is_collection (GType gtype);
+gboolean dbus_g_type_is_collection (GType gtype) {
+	return FALSE;
+}
 
-gboolean dbus_g_type_is_map (GType gtype);
+gboolean dbus_g_type_is_map (GType gtype) {
+	return FALSE;
+}
 
-gboolean dbus_g_type_is_struct (GType gtype);
+gboolean dbus_g_type_is_struct (GType gtype) {
+	return FALSE;
+}
 
-GType dbus_g_type_get_collection_specialization (GType gtype);
+GType dbus_g_type_get_collection_specialization (GType gtype) {
+	return 0;
+}
 
-GType dbus_g_type_get_map_key_specialization (GType gtype);
+GType dbus_g_type_get_map_key_specialization (GType gtype) {
+	return 0;
+}
 
-GType dbus_g_type_get_map_value_specialization (GType gtype);
+GType dbus_g_type_get_map_value_specialization (GType gtype) {
+	return 0;
+}
 
 GType dbus_g_type_get_struct_member_type (GType gtype,
- guint member);
+ guint member) {
+	return 0;
+}
 
-guint dbus_g_type_get_struct_size (GType gtype);
+guint dbus_g_type_get_struct_size (GType gtype) {
+	return 0;
+}
 
-gpointer dbus_g_type_specialized_construct (GType gtype);
+gpointer dbus_g_type_specialized_construct (GType gtype) {
+	return NULL;
+}
 
 gboolean dbus_g_type_collection_get_fixed (GValue *value,
  gpointer *data,
- guint *len);
+ guint *len) {
+	return FALSE;
+}
 
 gboolean dbus_g_type_struct_get_member (const GValue *value,
  guint member,
- GValue *dest);
+ GValue *dest) {
+	return FALSE;
+}
 
 gboolean dbus_g_type_struct_set_member (GValue *value,
  guint member,
- const GValue *src);
+ const GValue *src) {
+	return FALSE;
+}
 
 gboolean dbus_g_type_struct_get (const GValue *value,
  guint member,
- ...);
+ ...) {
+	return FALSE;
+}
 
 gboolean dbus_g_type_struct_set (GValue *value,
  guint member,
- ...);
+ ...) {
+	return FALSE;
+}
 
-const DBusGTypeSpecializedMapVtable* dbus_g_type_map_peek_vtable (GType map_type);
+const DBusGTypeSpecializedMapVtable* dbus_g_type_map_peek_vtable (GType map_type) {
+	return NULL;
+}
 
-const DBusGTypeSpecializedCollectionVtable* dbus_g_type_collection_peek_vtable (GType collection_type);
+const DBusGTypeSpecializedCollectionVtable* dbus_g_type_collection_peek_vtable (GType collection_type) {
+	return NULL;
+}
 
-const DBusGTypeSpecializedMapVtable* dbus_g_type_map_peek_vtable (GType map_type);
+const DBusGTypeSpecializedStructVtable* dbus_g_type_struct_peek_vtable (GType struct_type) {
+	return NULL;
+}
 
-const DBusGTypeSpecializedCollectionVtable* dbus_g_type_collection_peek_vtable (GType collection_type);
+void* dbus_malloc (size_t bytes) {
+	return malloc(bytes);
+}
 
-const DBusGTypeSpecializedStructVtable* dbus_g_type_struct_peek_vtable (GType struct_type);
-
-DBUS_MALLOC
-
-DBUS_ALLOC_SIZE(1)
-
-void* dbus_malloc (size_t bytes);
-
-DBUS_MALLOC
-
-DBUS_ALLOC_SIZE(1)
-
-void* dbus_malloc0 (size_t bytes);
-
-DBUS_MALLOC
-
-DBUS_ALLOC_SIZE(2)
+void* dbus_malloc0 (size_t bytes) {
+	return calloc(bytes, 1);
+}
 
 void* dbus_realloc (void *memory,
- size_t bytes);
+ size_t bytes) {
+	return realloc(memory, bytes);
+}
 
-DBusMessage* dbus_message_new (int message_type);
+DBusMessage* dbus_message_new (int message_type) {
+	return NULL;
+}
 
 DBusMessage* dbus_message_new_method_call (const char *bus_name,
  const char *path,
  const char *interface,
- const char *method);
+ const char *method) {
+	return NULL;
+}
 
-DBusMessage* dbus_message_new_method_return (DBusMessage *method_call);
+DBusMessage* dbus_message_new_method_return (DBusMessage *method_call) {
+	return NULL;
+}
 
 DBusMessage* dbus_message_new_signal (const char *path,
  const char *interface,
