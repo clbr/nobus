@@ -1,6 +1,5 @@
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
-typedef struct DBusAddressEntry DBusAddressEntry;
 dbus_bool_t dbus_parse_address (const char *address,
  DBusAddressEntry ***entry,
  int *array_len,
@@ -46,52 +45,6 @@ dbus_bool_t dbus_bus_start_service_by_name (DBusConnection *connection,
 #endif
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
-typedef struct DBusWatch DBusWatch;
-typedef struct DBusTimeout DBusTimeout;
-typedef struct DBusPreallocatedSend DBusPreallocatedSend;
-typedef struct DBusPendingCall DBusPendingCall;
-typedef struct DBusConnection DBusConnection;
-typedef struct DBusObjectPathVTable DBusObjectPathVTable;
-typedef enum
-{
- DBUS_WATCH_READABLE = 1 << 0,
- DBUS_WATCH_WRITABLE = 1 << 1,
- DBUS_WATCH_ERROR = 1 << 2,
- DBUS_WATCH_HANGUP = 1 << 3
-} DBusWatchFlags;
-typedef enum
-{
- DBUS_DISPATCH_DATA_REMAINS,
- DBUS_DISPATCH_COMPLETE,
- DBUS_DISPATCH_NEED_MEMORY
-} DBusDispatchStatus;
-typedef dbus_bool_t (* DBusAddWatchFunction) (DBusWatch *watch,
- void *data);
-typedef void (* DBusWatchToggledFunction) (DBusWatch *watch,
- void *data);
-typedef void (* DBusRemoveWatchFunction) (DBusWatch *watch,
- void *data);
-typedef dbus_bool_t (* DBusAddTimeoutFunction) (DBusTimeout *timeout,
- void *data);
-typedef void (* DBusTimeoutToggledFunction) (DBusTimeout *timeout,
- void *data);
-typedef void (* DBusRemoveTimeoutFunction) (DBusTimeout *timeout,
- void *data);
-typedef void (* DBusDispatchStatusFunction) (DBusConnection *connection,
- DBusDispatchStatus new_status,
- void *data);
-typedef void (* DBusWakeupMainFunction) (void *data);
-typedef dbus_bool_t (* DBusAllowUnixUserFunction) (DBusConnection *connection,
- unsigned long uid,
- void *data);
-typedef dbus_bool_t (* DBusAllowWindowsUserFunction) (DBusConnection *connection,
- const char *user_sid,
- void *data);
-typedef void (* DBusPendingCallNotifyFunction) (DBusPendingCall *pending,
- void *user_data);
-typedef DBusHandlerResult (* DBusHandleMessageFunction) (DBusConnection *connection,
- DBusMessage *message,
- void *user_data);
 DBusConnection* dbus_connection_open (const char *address,
  DBusError *error);
 DBusConnection* dbus_connection_open_private (const char *address,
@@ -162,20 +115,6 @@ long dbus_connection_get_max_received_unix_fds(DBusConnection *connection);
 long dbus_connection_get_outgoing_size (DBusConnection *connection);
 long dbus_connection_get_outgoing_unix_fds (DBusConnection *connection);
 DBusPreallocatedSend* dbus_connection_preallocate_send (DBusConnection *connection);
-typedef void (* DBusObjectPathUnregisterFunction) (DBusConnection *connection,
- void *user_data);
-typedef DBusHandlerResult (* DBusObjectPathMessageFunction) (DBusConnection *connection,
- DBusMessage *message,
- void *user_data);
-struct DBusObjectPathVTable
-{
- DBusObjectPathUnregisterFunction unregister_function;
- DBusObjectPathMessageFunction message_function;
- void (* dbus_internal_pad1) (void *);
- void (* dbus_internal_pad2) (void *);
- void (* dbus_internal_pad3) (void *);
- void (* dbus_internal_pad4) (void *);
-};
 dbus_bool_t dbus_connection_try_register_object_path (DBusConnection *connection,
  const char *path,
  const DBusObjectPathVTable *vtable,
@@ -223,65 +162,15 @@ dbus_bool_t dbus_timeout_get_enabled (DBusTimeout *timeout);
 #endif
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
-typedef struct DBusError DBusError;
-struct DBusError
-{
- const char *name;
- const char *message;
- unsigned int dummy1 : 1;
- unsigned int dummy2 : 1;
- unsigned int dummy3 : 1;
- unsigned int dummy4 : 1;
- unsigned int dummy5 : 1;
- void *padding1;
-};
 dbus_bool_t dbus_error_has_name (const DBusError *error,
  const char *name);
 dbus_bool_t dbus_error_is_set (const DBusError *error);
 #endif
-typedef struct _DBusGConnection DBusGConnection;
-typedef struct _DBusGMessage DBusGMessage;
 GType dbus_g_connection_get_g_type (void) G_GNUC_CONST;
 GType dbus_g_message_get_g_type (void) G_GNUC_CONST;
 DBusGConnection* dbus_g_connection_ref (DBusGConnection *connection);
 DBusGMessage* dbus_g_message_ref (DBusGMessage *message);
 GQuark dbus_g_error_quark (void);
-typedef enum
-{
-DBUS_GERROR_FAILED,
-DBUS_GERROR_NO_MEMORY,
-DBUS_GERROR_SERVICE_UNKNOWN,
-DBUS_GERROR_NAME_HAS_NO_OWNER,
-DBUS_GERROR_NO_REPLY,
-DBUS_GERROR_IO_ERROR,
-DBUS_GERROR_BAD_ADDRESS,
-DBUS_GERROR_NOT_SUPPORTED,
-DBUS_GERROR_LIMITS_EXCEEDED,
-DBUS_GERROR_ACCESS_DENIED,
-DBUS_GERROR_AUTH_FAILED,
-DBUS_GERROR_NO_SERVER,
-DBUS_GERROR_TIMEOUT,
-DBUS_GERROR_NO_NETWORK,
-DBUS_GERROR_ADDRESS_IN_USE,
-DBUS_GERROR_DISCONNECTED,
-DBUS_GERROR_INVALID_ARGS,
-DBUS_GERROR_FILE_NOT_FOUND,
-DBUS_GERROR_FILE_EXISTS,
-DBUS_GERROR_UNKNOWN_METHOD,
-DBUS_GERROR_TIMED_OUT,
-DBUS_GERROR_MATCH_RULE_NOT_FOUND,
-DBUS_GERROR_MATCH_RULE_INVALID,
-DBUS_GERROR_SPAWN_EXEC_FAILED,
-DBUS_GERROR_SPAWN_FORK_FAILED,
-DBUS_GERROR_SPAWN_CHILD_EXITED,
-DBUS_GERROR_SPAWN_CHILD_SIGNALED,
-DBUS_GERROR_SPAWN_FAILED,
-DBUS_GERROR_UNIX_PROCESS_ID_UNKNOWN,
-DBUS_GERROR_INVALID_SIGNATURE,
-DBUS_GERROR_INVALID_FILE_CONTENT,
-DBUS_GERROR_SELINUX_SECURITY_CONTEXT_UNKNOWN,
-DBUS_GERROR_REMOTE_EXCEPTION
-} DBusGError;
 gboolean dbus_g_error_has_name (GError *error,
  const char *name);
 const char * dbus_g_error_get_name (GError *error);
@@ -289,43 +178,12 @@ DBusGConnection* dbus_g_connection_open (const gchar *address,
  GError **error);
 DBusGConnection* dbus_g_bus_get (DBusBusType type,
  GError **error);
-typedef struct _DBusGObjectInfo DBusGObjectInfo;
-typedef struct _DBusGMethodInfo DBusGMethodInfo;
-struct _DBusGMethodInfo
-{
- GCallback function;
- GClosureMarshal marshaller;
- int data_offset;
-};
-struct _DBusGObjectInfo
-{
- int format_version;
- const DBusGMethodInfo *method_infos;
- int n_method_infos;
- const char *data;
- const char *exported_signals;
- const char *exported_properties;
-};
 GObject * dbus_g_connection_lookup_g_object (DBusGConnection *connection,
  const char *at_path);
 #ifdef DBUS_COMPILATION
 #else
 #endif
 GType dbus_g_object_path_get_g_type (void) G_GNUC_CONST;
-typedef struct _DBusGProxy DBusGProxy;
-typedef struct _DBusGProxyClass DBusGProxyClass;
-struct _DBusGProxy
-{
- GObject parent;
-};
-struct _DBusGProxyClass
-{
- GObjectClass parent_class;
-};
-typedef struct _DBusGProxyCall DBusGProxyCall;
-typedef void (* DBusGProxyCallNotify) (DBusGProxy *proxy,
- DBusGProxyCall *call_id,
- void *user_data);
 GType dbus_g_proxy_get_type (void) G_GNUC_CONST;
 DBusGProxy* dbus_g_proxy_new_for_name (DBusGConnection *connection,
  const char *name,
@@ -376,12 +234,6 @@ gboolean dbus_g_proxy_end_call (DBusGProxy *proxy,
 const char* dbus_g_proxy_get_path (DBusGProxy *proxy);
 const char* dbus_g_proxy_get_bus_name (DBusGProxy *proxy);
 const char* dbus_g_proxy_get_interface (DBusGProxy *proxy);
-typedef struct _DBusGMethodInvocation DBusGMethodInvocation;
-typedef struct {
- GCallback cb;
- gpointer userdata;
-} DBusGAsyncData;
-#endif
 GType dbus_connection_get_g_type (void) G_GNUC_CONST;
 GType dbus_message_get_g_type (void) G_GNUC_CONST;
 GType dbus_pending_call_get_g_type (void) G_GNUC_CONST;
@@ -411,19 +263,7 @@ GType dbus_g_type_get_map_value_specialization (GType gtype);
 GType dbus_g_type_get_struct_member_type (GType gtype,
  guint member);
 guint dbus_g_type_get_struct_size (GType gtype);
-typedef void (*DBusGTypeSpecializedCollectionIterator) (const GValue *value,
- gpointer user_data);
-typedef void (*DBusGTypeSpecializedMapIterator) (const GValue *key_val,
- const GValue *value_val,
- gpointer user_data);
 gpointer dbus_g_type_specialized_construct (GType gtype);
-typedef struct {
- GValue *val;
- GType specialization_type;
- gpointer b;
- guint c;
- gpointer d;
-} DBusGTypeSpecializedAppendContext;
 gboolean dbus_g_type_collection_get_fixed (GValue *value,
  gpointer *data,
  guint *len);
@@ -439,42 +279,6 @@ gboolean dbus_g_type_struct_get (const GValue *value,
 gboolean dbus_g_type_struct_set (GValue *value,
  guint member,
  ...);
-typedef gpointer (*DBusGTypeSpecializedConstructor) (GType type);
-typedef void (*DBusGTypeSpecializedFreeFunc) (GType type, gpointer val);
-typedef gpointer (*DBusGTypeSpecializedCopyFunc) (GType type, gpointer src);
-typedef struct {
- DBusGTypeSpecializedConstructor constructor;
- DBusGTypeSpecializedFreeFunc free_func;
- DBusGTypeSpecializedCopyFunc copy_func;
- GDestroyNotify simple_free_func;
- gpointer padding2;
- gpointer padding3;
-} DBusGTypeSpecializedVtable;
-typedef gboolean (*DBusGTypeSpecializedCollectionFixedAccessorFunc) (GType type, gpointer instance, gpointer *values, guint *len);
-typedef void (*DBusGTypeSpecializedCollectionIteratorFunc) (GType type, gpointer instance, DBusGTypeSpecializedCollectionIterator iterator, gpointer user_data);
-typedef void (*DBusGTypeSpecializedCollectionAppendFunc) (DBusGTypeSpecializedAppendContext *ctx, GValue *val);
-typedef void (*DBusGTypeSpecializedCollectionEndAppendFunc) (DBusGTypeSpecializedAppendContext *ctx);
-typedef struct {
- DBusGTypeSpecializedVtable base_vtable;
- DBusGTypeSpecializedCollectionFixedAccessorFunc fixed_accessor;
- DBusGTypeSpecializedCollectionIteratorFunc iterator;
- DBusGTypeSpecializedCollectionAppendFunc append_func;
- DBusGTypeSpecializedCollectionEndAppendFunc end_append_func;
-} DBusGTypeSpecializedCollectionVtable;
-typedef void (*DBusGTypeSpecializedMapIteratorFunc) (GType type, gpointer instance, DBusGTypeSpecializedMapIterator iterator, gpointer user_data);
-typedef void (*DBusGTypeSpecializedMapAppendFunc) (DBusGTypeSpecializedAppendContext *ctx, GValue *key, GValue *val);
-typedef struct {
- DBusGTypeSpecializedVtable base_vtable;
- DBusGTypeSpecializedMapIteratorFunc iterator;
- DBusGTypeSpecializedMapAppendFunc append_func;
-} DBusGTypeSpecializedMapVtable;
-typedef gboolean (*DBusGTypeSpecializedStructGetMember) (GType type, gpointer instance, guint member, GValue *ret_value);
-typedef gboolean (*DBusGTypeSpecializedStructSetMember) (GType type, gpointer instance, guint member, const GValue *new_value);
-typedef struct {
- DBusGTypeSpecializedVtable base_vtable;
- DBusGTypeSpecializedStructGetMember get_member;
- DBusGTypeSpecializedStructSetMember set_member;
-} DBusGTypeSpecializedStructVtable;
 const DBusGTypeSpecializedMapVtable* dbus_g_type_map_peek_vtable (GType map_type);
 const DBusGTypeSpecializedCollectionVtable* dbus_g_type_collection_peek_vtable (GType collection_type);
 const DBusGTypeSpecializedMapVtable* dbus_g_type_map_peek_vtable (GType map_type);
@@ -493,29 +297,9 @@ DBUS_MALLOC
 DBUS_ALLOC_SIZE(2)
 void* dbus_realloc (void *memory,
  size_t bytes);
-typedef void (* DBusFreeFunction) (void *memory);
 #endif
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
-typedef struct DBusMessage DBusMessage;
-typedef struct DBusMessageIter DBusMessageIter;
-struct DBusMessageIter
-{
- void *dummy1;
- void *dummy2;
- dbus_uint32_t dummy3;
- int dummy4;
- int dummy5;
- int dummy6;
- int dummy7;
- int dummy8;
- int dummy9;
- int dummy10;
- int dummy11;
- int pad1;
- int pad2;
- void *pad3;
-};
 DBusMessage* dbus_message_new (int message_type);
 DBusMessage* dbus_message_new_method_call (const char *bus_name,
  const char *path,
@@ -687,10 +471,6 @@ extern "C" {
 #endif
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
-typedef struct DBusServer DBusServer;
-typedef void (* DBusNewConnectionFunction) (DBusServer *server,
- DBusConnection *new_connection,
- void *data);
 DBusServer* dbus_server_listen (const char *address,
  DBusError *error);
 DBusServer* dbus_server_ref (DBusServer *server);
@@ -725,18 +505,6 @@ extern "C" {
 }
 #endif
 #endif
-typedef enum
-{
- DBUS_BUS_SESSION,
- DBUS_BUS_SYSTEM,
- DBUS_BUS_STARTER
-} DBusBusType;
-typedef enum
-{
- DBUS_HANDLER_RESULT_HANDLED,
- DBUS_HANDLER_RESULT_NOT_YET_HANDLED,
- DBUS_HANDLER_RESULT_NEED_MEMORY
-} DBusHandlerResult;
 #ifdef __cplusplus
 #if 0
 {
@@ -746,14 +514,6 @@ typedef enum
 #endif
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
-typedef struct
-{
- void *dummy1;
- void *dummy2;
- dbus_uint32_t dummy8;
- int dummy12;
- int dummy17;
-} DBusSignatureIter;
 int dbus_signature_iter_get_current_type (const DBusSignatureIter *iter);
 char * dbus_signature_iter_get_signature (const DBusSignatureIter *iter);
 int dbus_signature_iter_get_element_type (const DBusSignatureIter *iter);
@@ -768,70 +528,9 @@ dbus_bool_t dbus_type_is_fixed (int typecode);
 #endif
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
-typedef struct DBusMutex DBusMutex;
-typedef struct DBusCondVar DBusCondVar;
-typedef DBusMutex* (* DBusMutexNewFunction) (void);
-typedef void (* DBusMutexFreeFunction) (DBusMutex *mutex);
-typedef dbus_bool_t (* DBusMutexLockFunction) (DBusMutex *mutex);
-typedef dbus_bool_t (* DBusMutexUnlockFunction) (DBusMutex *mutex);
-typedef DBusMutex* (* DBusRecursiveMutexNewFunction) (void);
-typedef void (* DBusRecursiveMutexFreeFunction) (DBusMutex *mutex);
-typedef void (* DBusRecursiveMutexLockFunction) (DBusMutex *mutex);
-typedef void (* DBusRecursiveMutexUnlockFunction) (DBusMutex *mutex);
-typedef DBusCondVar* (* DBusCondVarNewFunction) (void);
-typedef void (* DBusCondVarFreeFunction) (DBusCondVar *cond);
-typedef void (* DBusCondVarWaitFunction) (DBusCondVar *cond,
- DBusMutex *mutex);
-typedef dbus_bool_t (* DBusCondVarWaitTimeoutFunction) (DBusCondVar *cond,
- DBusMutex *mutex,
- int timeout_milliseconds);
-typedef void (* DBusCondVarWakeOneFunction) (DBusCondVar *cond);
-typedef void (* DBusCondVarWakeAllFunction) (DBusCondVar *cond);
-typedef enum
-{
- DBUS_THREAD_FUNCTIONS_MUTEX_NEW_MASK = 1 << 0,
- DBUS_THREAD_FUNCTIONS_MUTEX_FREE_MASK = 1 << 1,
- DBUS_THREAD_FUNCTIONS_MUTEX_LOCK_MASK = 1 << 2,
- DBUS_THREAD_FUNCTIONS_MUTEX_UNLOCK_MASK = 1 << 3,
- DBUS_THREAD_FUNCTIONS_CONDVAR_NEW_MASK = 1 << 4,
- DBUS_THREAD_FUNCTIONS_CONDVAR_FREE_MASK = 1 << 5,
- DBUS_THREAD_FUNCTIONS_CONDVAR_WAIT_MASK = 1 << 6,
- DBUS_THREAD_FUNCTIONS_CONDVAR_WAIT_TIMEOUT_MASK = 1 << 7,
- DBUS_THREAD_FUNCTIONS_CONDVAR_WAKE_ONE_MASK = 1 << 8,
- DBUS_THREAD_FUNCTIONS_CONDVAR_WAKE_ALL_MASK = 1 << 9,
- DBUS_THREAD_FUNCTIONS_RECURSIVE_MUTEX_NEW_MASK = 1 << 10,
- DBUS_THREAD_FUNCTIONS_RECURSIVE_MUTEX_FREE_MASK = 1 << 11,
- DBUS_THREAD_FUNCTIONS_RECURSIVE_MUTEX_LOCK_MASK = 1 << 12,
- DBUS_THREAD_FUNCTIONS_RECURSIVE_MUTEX_UNLOCK_MASK = 1 << 13,
- DBUS_THREAD_FUNCTIONS_ALL_MASK = (1 << 14) - 1
-} DBusThreadFunctionsMask;
-typedef struct
-{
- unsigned int mask;
- DBusMutexNewFunction mutex_new;
- DBusMutexFreeFunction mutex_free;
- DBusMutexLockFunction mutex_lock;
- DBusMutexUnlockFunction mutex_unlock;
- DBusCondVarNewFunction condvar_new;
- DBusCondVarFreeFunction condvar_free;
- DBusCondVarWaitFunction condvar_wait;
- DBusCondVarWaitTimeoutFunction condvar_wait_timeout;
- DBusCondVarWakeOneFunction condvar_wake_one;
- DBusCondVarWakeAllFunction condvar_wake_all;
- DBusRecursiveMutexNewFunction recursive_mutex_new;
- DBusRecursiveMutexFreeFunction recursive_mutex_free;
- DBusRecursiveMutexLockFunction recursive_mutex_lock;
- DBusRecursiveMutexUnlockFunction recursive_mutex_unlock;
- void (* padding1) (void);
- void (* padding2) (void);
- void (* padding3) (void);
- void (* padding4) (void);
-} DBusThreadFunctions;
 dbus_bool_t dbus_threads_init (const DBusThreadFunctions *functions);
 dbus_bool_t dbus_threads_init_default (void);
 #endif
 #if !defined (DBUS_INSIDE_DBUS_H) && !defined (DBUS_COMPILATION)
 #endif
-typedef dbus_uint32_t dbus_unichar_t;
-typedef dbus_uint32_t dbus_bool_t;
 #endif
