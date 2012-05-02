@@ -80,15 +80,9 @@ dbus_bool_t     dbus_bus_start_service_by_name (DBusConnection *connection,
                                                 DBusError      *error);
 
 
-void            dbus_bus_add_match        (DBusConnection *connection,
-                                           const char     *rule,
-                                           DBusError      *error);
+#define dbus_bus_add_match(a, b, c) ((void)0)
 
-void            dbus_bus_remove_match     (DBusConnection *connection,
-                                           const char     *rule,
-                                           DBusError      *error);
-
-/** @} */
+#define dbus_bus_remove_match(a, b, c) ((void)0)
 
 DBUS_END_DECLS
 
