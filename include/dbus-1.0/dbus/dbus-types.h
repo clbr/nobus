@@ -4,7 +4,7 @@
  * Copyright (C) 2002  Red Hat Inc.
  *
  * Licensed under the Academic Free License version 2.1
- * 
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -14,7 +14,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
@@ -98,7 +98,7 @@ typedef dbus_uint32_t  dbus_bool_t;
  * C99 requires a 64-bit type and most likely all interesting
  * compilers support one. GLib for example flat-out requires
  * a 64-bit type.
- * 
+ *
  * You probably want to just assume #DBUS_HAVE_INT64 is always defined.
  */
 
@@ -115,7 +115,7 @@ typedef dbus_uint32_t  dbus_bool_t;
  *
  * You should feel comfortable ignoring this macro and just using
  * int64 unconditionally.
- * 
+ *
  */
 
 /**

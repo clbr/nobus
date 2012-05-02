@@ -4,7 +4,7 @@
  * Copyright (C) 2002  Red Hat Inc.
  *
  * Licensed under the Academic Free License version 2.1
- * 
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -14,7 +14,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
@@ -96,7 +96,7 @@ typedef void          (* DBusCondVarWaitFunction)        (DBusCondVar *cond,
  *  #DBusThreadFunctions. Returns #TRUE if the wait did not
  *  time out, and #FALSE if it did.
  *
- * Has no error conditions. Must succeed if it returns. 
+ * Has no error conditions. Must succeed if it returns.
  */
 typedef dbus_bool_t   (* DBusCondVarWaitTimeoutFunction) (DBusCondVar *cond,
 							  DBusMutex   *mutex,
@@ -118,7 +118,7 @@ typedef void          (* DBusCondVarWakeAllFunction) (DBusCondVar *cond);
  * the library to detect older callers of dbus_threads_init() if new possible functions
  * are added to #DBusThreadFunctions.
  */
-typedef enum 
+typedef enum
 {
   DBUS_THREAD_FUNCTIONS_MUTEX_NEW_MASK      = 1 << 0,
   DBUS_THREAD_FUNCTIONS_MUTEX_FREE_MASK     = 1 << 1,
@@ -173,7 +173,7 @@ typedef struct
   DBusCondVarWaitTimeoutFunction condvar_wait_timeout; /**< Function to wait on a condition with a timeout */
   DBusCondVarWakeOneFunction condvar_wake_one; /**< Function to wake one thread waiting on the condition */
   DBusCondVarWakeAllFunction condvar_wake_all; /**< Function to wake all threads waiting on the condition */
- 
+
   DBusRecursiveMutexNewFunction recursive_mutex_new; /**< Function to create a recursive mutex */
   DBusRecursiveMutexFreeFunction recursive_mutex_free; /**< Function to free a recursive mutex */
   DBusRecursiveMutexLockFunction recursive_mutex_lock; /**< Function to lock a recursive mutex */
@@ -183,7 +183,7 @@ typedef struct
   void (* padding2) (void); /**< Reserved for future expansion */
   void (* padding3) (void); /**< Reserved for future expansion */
   void (* padding4) (void); /**< Reserved for future expansion */
-  
+
 } DBusThreadFunctions;
 
 

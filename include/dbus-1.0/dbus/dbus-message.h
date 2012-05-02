@@ -4,7 +4,7 @@
  * Copyright (C) 2002, 2003, 2005 Red Hat Inc.
  *
  * Licensed under the Academic Free License version 2.1
- * 
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -14,7 +14,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
@@ -46,10 +46,10 @@ typedef struct DBusMessage DBusMessage;
 typedef struct DBusMessageIter DBusMessageIter;
 
 /**
- * DBusMessageIter struct; contains no public fields. 
+ * DBusMessageIter struct; contains no public fields.
  */
 struct DBusMessageIter
-{ 
+{
   void *dummy1;         /**< Don't use this */
   void *dummy2;         /**< Don't use this */
   dbus_uint32_t dummy3; /**< Don't use this */
@@ -104,15 +104,15 @@ dbus_bool_t   dbus_message_set_path         (DBusMessage   *message,
 
 const char*   dbus_message_get_path         (DBusMessage   *message);
 
-dbus_bool_t   dbus_message_has_path         (DBusMessage   *message, 
-                                             const char    *object_path);  
+dbus_bool_t   dbus_message_has_path         (DBusMessage   *message,
+                                             const char    *object_path);
 
 dbus_bool_t   dbus_message_set_interface    (DBusMessage   *message,
-                                             const char    *interface);       
+                                             const char    *interface);
 
 const char*   dbus_message_get_interface    (DBusMessage   *message);
 
-dbus_bool_t   dbus_message_has_interface    (DBusMessage   *message, 
+dbus_bool_t   dbus_message_has_interface    (DBusMessage   *message,
                                              const char    *interface);
 
 dbus_bool_t   dbus_message_set_member       (DBusMessage   *message,
@@ -120,7 +120,7 @@ dbus_bool_t   dbus_message_set_member       (DBusMessage   *message,
 
 const char*   dbus_message_get_member       (DBusMessage   *message);
 
-dbus_bool_t   dbus_message_has_member       (DBusMessage   *message, 
+dbus_bool_t   dbus_message_has_member       (DBusMessage   *message,
                                              const char    *member);
 
 dbus_bool_t   dbus_message_set_error_name   (DBusMessage   *message,
@@ -167,7 +167,7 @@ dbus_bool_t   dbus_message_has_signature    (DBusMessage   *message,
 
 dbus_uint32_t dbus_message_get_serial       (DBusMessage   *message);
 
-void          dbus_message_set_serial       (DBusMessage   *message, 
+void          dbus_message_set_serial       (DBusMessage   *message,
                                              dbus_uint32_t  serial);
 
 dbus_bool_t   dbus_message_set_reply_serial (DBusMessage   *message,
@@ -299,7 +299,7 @@ DBusMessage* dbus_message_demarshal (const char *str,
                                      DBusError  *error);
 
 
-int          dbus_message_demarshal_bytes_needed (const char *str, 
+int          dbus_message_demarshal_bytes_needed (const char *str,
                                                   int len);
 
 /** @} */
