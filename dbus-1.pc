@@ -1,0 +1,15 @@
+prefix=/tmp/kai
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+sysconfdir=/tmp/kai/etc
+session_bus_services_dir=/tmp/kai/share/dbus-1/services
+system_bus_services_dir=/tmp/kai/share/dbus-1/system-services
+interfaces_dir=/tmp/kai/share/dbus-1/interfaces
+daemondir=/tmp/kai/bin
+
+Name: dbus
+Description: D-bus replacement stub
+Version: 1.4.20
+Libs: -L${libdir} -lnobus-1
+Cflags: -I${includedir}/dbus-1.0 -I${libdir}/dbus-1.0/include
