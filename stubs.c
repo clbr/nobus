@@ -1,21 +1,32 @@
 #include "include/dbus-1.0/dbus/dbus.h"
 #include "include/dbus-1.0/dbus/dbus-glib.h"
 
+static const char *empty = "";
 
-dbus_bool_t dbus_parse_address (const char *address,
- DBusAddressEntry ***entry,
- int *array_len,
- DBusError *error);
+dbus_bool_t dbus_parse_address (const char *a,
+ DBusAddressEntry ***b,
+ int *c,
+ DBusError *d) {
+	return TRUE;
+}
 
 const char *dbus_address_entry_get_value (DBusAddressEntry *entry,
- const char *key);
+ const char *key) {
+	return empty;
+}
 
-const char *dbus_address_entry_get_method (DBusAddressEntry *entry);
+const char *dbus_address_entry_get_method (DBusAddressEntry *entry) {
+	return empty;
+}
 
-char* dbus_address_escape_value (const char *value);
+char* dbus_address_escape_value (const char *value) {
+	return NULL;
+}
 
 char* dbus_address_unescape_value (const char *value,
- DBusError *error);
+ DBusError *error) {
+	return NULL;
+}
 
 DBusConnection *dbus_bus_get (DBusBusType type,
  DBusError *error);
