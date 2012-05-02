@@ -682,149 +682,249 @@ DBusMessage* dbus_message_new_method_return (DBusMessage *method_call) {
 
 DBusMessage* dbus_message_new_signal (const char *path,
  const char *interface,
- const char *name);
+ const char *name) {
+	return NULL;
+}
 
 DBusMessage* dbus_message_new_error (DBusMessage *reply_to,
  const char *error_name,
- const char *error_message);
+ const char *error_message) {
+	return NULL;
+}
 
 DBusMessage* dbus_message_new_error_printf (DBusMessage *reply_to,
  const char *error_name,
  const char *error_format,
- ...);
+ ...) {
+	return NULL;
+}
 
-DBusMessage* dbus_message_copy (const DBusMessage *message);
+DBusMessage* dbus_message_copy (const DBusMessage *message) {
+	return NULL;
+}
 
-DBusMessage* dbus_message_ref (DBusMessage *message);
+DBusMessage* dbus_message_ref (DBusMessage *message) {
+	return message;
+}
 
-int dbus_message_get_type (DBusMessage *message);
+int dbus_message_get_type (DBusMessage *message) {
+	return 0;
+}
 
 dbus_bool_t dbus_message_set_path (DBusMessage *message,
- const char *object_path);
+ const char *object_path) {
+	return TRUE;
+}
 
-const char* dbus_message_get_path (DBusMessage *message);
+const char* dbus_message_get_path (DBusMessage *message) {
+	return empty;
+}
 
 dbus_bool_t dbus_message_has_path (DBusMessage *message,
- const char *object_path);
+ const char *object_path) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_message_set_interface (DBusMessage *message,
- const char *interface);
+ const char *interface) {
+	return TRUE;
+}
 
-const char* dbus_message_get_interface (DBusMessage *message);
+const char* dbus_message_get_interface (DBusMessage *message) {
+	return empty;
+}
 
 dbus_bool_t dbus_message_has_interface (DBusMessage *message,
- const char *interface);
+ const char *interface) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_message_set_member (DBusMessage *message,
- const char *member);
+ const char *member) {
+	return TRUE;
+}
 
-const char* dbus_message_get_member (DBusMessage *message);
+const char* dbus_message_get_member (DBusMessage *message) {
+	return empty;
+}
 
 dbus_bool_t dbus_message_has_member (DBusMessage *message,
- const char *member);
+ const char *member) {
+	return FALSE;
+}
 
 dbus_bool_t dbus_message_set_error_name (DBusMessage *message,
- const char *name);
+ const char *name) {
+	return TRUE;
+}
 
-const char* dbus_message_get_error_name (DBusMessage *message);
+const char* dbus_message_get_error_name (DBusMessage *message) {
+	return empty;
+}
 
 dbus_bool_t dbus_message_set_destination (DBusMessage *message,
- const char *destination);
+ const char *destination) {
+	return TRUE;
+}
 
-const char* dbus_message_get_destination (DBusMessage *message);
+const char* dbus_message_get_destination (DBusMessage *message) {
+	return empty;
+}
 
 dbus_bool_t dbus_message_set_sender (DBusMessage *message,
- const char *sender);
+ const char *sender) {
+	return TRUE;
+}
 
-const char* dbus_message_get_sender (DBusMessage *message);
+const char* dbus_message_get_sender (DBusMessage *message) {
+	return empty;
+}
 
-const char* dbus_message_get_signature (DBusMessage *message);
+const char* dbus_message_get_signature (DBusMessage *message) {
+	return empty;
+}
 
-dbus_bool_t dbus_message_get_no_reply (DBusMessage *message);
+dbus_bool_t dbus_message_get_no_reply (DBusMessage *message) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_message_is_method_call (DBusMessage *message,
  const char *interface,
- const char *method);
+ const char *method) {
+	return FALSE;
+}
 
 dbus_bool_t dbus_message_is_signal (DBusMessage *message,
  const char *interface,
- const char *signal_name);
+ const char *signal_name) {
+	return FALSE;
+}
 
 dbus_bool_t dbus_message_is_error (DBusMessage *message,
- const char *error_name);
+ const char *error_name) {
+	return FALSE;
+}
 
 dbus_bool_t dbus_message_has_destination (DBusMessage *message,
- const char *bus_name);
+ const char *bus_name) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_message_has_sender (DBusMessage *message,
- const char *unique_bus_name);
+ const char *unique_bus_name) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_message_has_signature (DBusMessage *message,
- const char *signature);
+ const char *signature) {
+	return TRUE;
+}
 
-dbus_uint32_t dbus_message_get_serial (DBusMessage *message);
+dbus_uint32_t dbus_message_get_serial (DBusMessage *message) {
+	return 0;
+}
 
 dbus_bool_t dbus_message_set_reply_serial (DBusMessage *message,
- dbus_uint32_t reply_serial);
+ dbus_uint32_t reply_serial) {
+	return TRUE;
+}
 
-dbus_uint32_t dbus_message_get_reply_serial (DBusMessage *message);
+dbus_uint32_t dbus_message_get_reply_serial (DBusMessage *message) {
+	return 0;
+}
 
-dbus_bool_t dbus_message_get_auto_start (DBusMessage *message);
+dbus_bool_t dbus_message_get_auto_start (DBusMessage *message) {
+	return FALSE;
+}
 
 dbus_bool_t dbus_message_get_path_decomposed (DBusMessage *message,
- char ***path);
+ char ***path) {
+	return FALSE;
+}
 
 dbus_bool_t dbus_message_append_args (DBusMessage *message,
  int first_arg_type,
- ...);
+ ...) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_message_append_args_valist (DBusMessage *message,
  int first_arg_type,
- va_list var_args);
+ va_list var_args) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_message_get_args (DBusMessage *message,
  DBusError *error,
  int first_arg_type,
- ...);
+ ...) {
+	return FALSE;
+}
 
 dbus_bool_t dbus_message_get_args_valist (DBusMessage *message,
  DBusError *error,
  int first_arg_type,
- va_list var_args);
+ va_list var_args) {
+	return FALSE;
+}
 
-dbus_bool_t dbus_message_contains_unix_fds (DBusMessage *message);
+dbus_bool_t dbus_message_contains_unix_fds (DBusMessage *message) {
+	return FALSE;
+}
 
 dbus_bool_t dbus_message_iter_init (DBusMessage *message,
- DBusMessageIter *iter);
+ DBusMessageIter *iter) {
+	return FALSE;
+}
 
-dbus_bool_t dbus_message_iter_has_next (DBusMessageIter *iter);
+dbus_bool_t dbus_message_iter_has_next (DBusMessageIter *iter) {
+	return FALSE;
+}
 
-dbus_bool_t dbus_message_iter_next (DBusMessageIter *iter);
+dbus_bool_t dbus_message_iter_next (DBusMessageIter *iter) {
+	return FALSE;
+}
 
-char* dbus_message_iter_get_signature (DBusMessageIter *iter);
+char* dbus_message_iter_get_signature (DBusMessageIter *iter) {
+	return strdup(empty);
+}
 
-int dbus_message_iter_get_arg_type (DBusMessageIter *iter);
+int dbus_message_iter_get_arg_type (DBusMessageIter *iter) {
+	return 0;
+}
 
-int dbus_message_iter_get_element_type (DBusMessageIter *iter);
+int dbus_message_iter_get_element_type (DBusMessageIter *iter) {
+	return 0;
+}
 
-DBUS_DEPRECATED int dbus_message_iter_get_array_len (DBusMessageIter *iter);
+int dbus_message_iter_get_array_len (DBusMessageIter *iter) {
+	return 0;
+}
 
 dbus_bool_t dbus_message_iter_append_basic (DBusMessageIter *iter,
  int type,
- const void *value);
+ const void *value) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_message_iter_append_fixed_array (DBusMessageIter *iter,
  int element_type,
  const void *value,
- int n_elements);
+ int n_elements) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_message_iter_open_container (DBusMessageIter *iter,
  int type,
  const char *contained_signature,
- DBusMessageIter *sub);
+ DBusMessageIter *sub) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_message_iter_close_container (DBusMessageIter *iter,
- DBusMessageIter *sub);
+ DBusMessageIter *sub) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_set_error_from_message (DBusError *error,
  DBusMessage *message);
