@@ -177,9 +177,9 @@ DBusConnection* dbus_connection_open_private (const char *address,
 
 DBusConnection* dbus_connection_ref (DBusConnection *connection);
 
-void dbus_connection_unref (DBusConnection *connection);
+#define dbus_connection_unref(c) ((void)0)
 
-void dbus_connection_close (DBusConnection *connection);
+#define dbus_connection_close(c) ((void)0)
 
 dbus_bool_t dbus_connection_get_is_connected (DBusConnection *connection);
 
@@ -193,10 +193,9 @@ dbus_bool_t dbus_connection_can_send_type (DBusConnection *connection,
  int type);
 
 
-void dbus_connection_set_exit_on_disconnect (DBusConnection *connection,
- dbus_bool_t exit_on_disconnect);
+#define dbus_connection_set_exit_on_disconnect(a, b) ((void)0)
 
-void dbus_connection_flush (DBusConnection *connection);
+#define dbus_connection_flush(a) ((void)0)
 
 dbus_bool_t dbus_connection_read_write_dispatch (DBusConnection *connection,
  int timeout_milliseconds);
@@ -206,11 +205,9 @@ dbus_bool_t dbus_connection_read_write (DBusConnection *connection,
 
 DBusMessage* dbus_connection_borrow_message (DBusConnection *connection);
 
-void dbus_connection_return_message (DBusConnection *connection,
- DBusMessage *message);
+#define dbus_connection_return_message(a, b) ((void)0)
 
-void dbus_connection_steal_borrowed_message (DBusConnection *connection,
- DBusMessage *message);
+#define dbus_connection_steal_borrowed_message(a, b) ((void)0)
 
 DBusMessage* dbus_connection_pop_message (DBusConnection *connection);
 
@@ -248,15 +245,9 @@ dbus_bool_t dbus_connection_set_timeout_functions (DBusConnection *connection,
  void *data,
  DBusFreeFunction free_data_function);
 
-void dbus_connection_set_wakeup_main_function (DBusConnection *connection,
- DBusWakeupMainFunction wakeup_main_function,
- void *data,
- DBusFreeFunction free_data_function);
+#define dbus_connection_set_wakeup_main_function(a, b, c, d) ((void)0)
 
-void dbus_connection_set_dispatch_status_function (DBusConnection *connection,
- DBusDispatchStatusFunction function,
- void *data,
- DBusFreeFunction free_data_function);
+#define dbus_connection_set_dispatch_status_function(a, b, c, d) ((void)0)
 
 dbus_bool_t dbus_connection_get_unix_user (DBusConnection *connection,
  unsigned long *uid);
@@ -268,25 +259,16 @@ dbus_bool_t dbus_connection_get_adt_audit_session_data (DBusConnection *connecti
  void **data,
  dbus_int32_t *data_size);
 
-void dbus_connection_set_unix_user_function (DBusConnection *connection,
- DBusAllowUnixUserFunction function,
- void *data,
- DBusFreeFunction free_data_function);
+#define dbus_connection_set_unix_user_function(a, b, c, d) ((void)0)
 
 dbus_bool_t dbus_connection_get_windows_user (DBusConnection *connection,
  char **windows_sid_p);
 
-void dbus_connection_set_windows_user_function (DBusConnection *connection,
- DBusAllowWindowsUserFunction function,
- void *data,
- DBusFreeFunction free_data_function);
+#define dbus_connection_set_windows_user_function(a, b, c, d) ((void)0)
 
-void dbus_connection_set_allow_anonymous (DBusConnection *connection,
- dbus_bool_t value);
+#define dbus_connection_set_allow_anonymous(a, b) ((void)0)
 
-void dbus_connection_set_route_peer_messages (DBusConnection *connection,
- dbus_bool_t value);
-
+#define dbus_connection_set_route_peer_messages(a, b) ((void)0)
 
 /* Filters */
 
@@ -296,16 +278,13 @@ dbus_bool_t dbus_connection_add_filter (DBusConnection *connection,
  void *user_data,
  DBusFreeFunction free_data_function);
 
-void dbus_connection_remove_filter (DBusConnection *connection,
- DBusHandleMessageFunction function,
- void *user_data);
-
+#define dbus_connection_remove_filter(a, b, c) ((void)0)
 
 /* Other */
 
 dbus_bool_t dbus_connection_allocate_data_slot (dbus_int32_t *slot_p);
 
-void dbus_connection_free_data_slot (dbus_int32_t *slot_p);
+#define dbus_connection_free_data_slot(a) ((void)0)
 
 dbus_bool_t dbus_connection_set_data (DBusConnection *connection,
  dbus_int32_t slot,
@@ -316,11 +295,9 @@ void* dbus_connection_get_data (DBusConnection *connection,
  dbus_int32_t slot);
 
 
-void dbus_connection_set_change_sigpipe (dbus_bool_t will_modify_sigpipe);
+#define dbus_connection_set_change_sigpipe(a) ((void)0)
 
-
-void dbus_connection_set_max_message_size (DBusConnection *connection,
- long size);
+#define dbus_connection_set_max_message_size(a, b) ((void)0)
 
 long dbus_connection_get_max_message_size (DBusConnection *connection);
 
