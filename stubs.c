@@ -1,3 +1,6 @@
+#include "include/dbus-1.0/dbus/dbus.h"
+#include "include/dbus-1.0/dbus/dbus-glib.h"
+
 
 dbus_bool_t dbus_parse_address (const char *address,
  DBusAddressEntry ***entry,
