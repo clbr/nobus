@@ -2,8 +2,8 @@ NAME = libnobus.a
 SRC = stubs.c
 OBJ = stubs.o
 
-PREFIX = /usr/local
-DESTDIR =
+PREFIX ?= /usr/local
+DESTDIR ?=
 
 CFLAGS += -Iinclude/dbus-1.0 -Wall
 CFLAGS += $(shell pkg-config --cflags glib-2.0)
