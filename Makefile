@@ -24,13 +24,13 @@ $(NAME): $(OBJ)
 clean:
 	rm -f *.o *.a *.pc
 
-install:
+install: all
 	@echo Installing to $(DESTDIR)/$(PREFIX)
 	mkdir -p $(DESTDIR)/$(PREFIX)/lib/pkgconfig
 	cp -a include $(DESTDIR)/$(PREFIX)
 
-	sed "s@/tmp/kai@$(PREFIX)@" dbus-glib.pcin > dbus-glib.pc
-	sed "s@/tmp/kai@$(PREFIX)@" dbus-1.0.pcin > dbus-1.0.pc
+	sed "s@/tmp/kai@$(PREFIX)@" dbus-glib-1.pcin > dbus-glib.pc
+	sed "s@/tmp/kai@$(PREFIX)@" dbus-1.pcin > dbus-1.pc
 
 	cp *.pc $(DESTDIR)/$(PREFIX)/lib/pkgconfig
 
