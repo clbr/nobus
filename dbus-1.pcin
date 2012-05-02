@@ -11,5 +11,5 @@ daemondir=/tmp/kai/bin
 Name: dbus
 Description: D-bus replacement stub
 Version: 1.4.20
-Libs: -L${libdir} -lnobus-1
+Libs: -L${libdir} -lnobus
 Cflags: -I${includedir}/dbus-1.0 -I${libdir}/dbus-1.0/include
