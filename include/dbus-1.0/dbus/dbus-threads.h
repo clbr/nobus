@@ -186,9 +186,9 @@ typedef struct
   
 } DBusThreadFunctions;
 
-DBUS_EXPORT
+
 dbus_bool_t  dbus_threads_init         (const DBusThreadFunctions *functions);
-DBUS_EXPORT
+
 dbus_bool_t  dbus_threads_init_default (void);
 
 /** @} */

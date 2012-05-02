@@ -36,10 +36,10 @@ DBUS_BEGIN_DECLS
  * @addtogroup DBusMisc
  * @{
  */
-DBUS_EXPORT
+
 char*       dbus_get_local_machine_id  (void);
 
-DBUS_EXPORT
+
 void        dbus_get_version           (int *major_version_p,
                                         int *minor_version_p,
                                         int *micro_version_p);

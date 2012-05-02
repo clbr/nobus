@@ -40,22 +40,22 @@ DBUS_BEGIN_DECLS
 /** Opaque type representing one of the semicolon-separated items in an address */
 typedef struct DBusAddressEntry DBusAddressEntry;
 
-DBUS_EXPORT
+
 dbus_bool_t dbus_parse_address            (const char         *address,
 					   DBusAddressEntry ***entry,
 					   int                *array_len,
 					   DBusError          *error);
-DBUS_EXPORT
+
 const char *dbus_address_entry_get_value  (DBusAddressEntry   *entry,
 					   const char         *key);
-DBUS_EXPORT
+
 const char *dbus_address_entry_get_method (DBusAddressEntry   *entry);
-DBUS_EXPORT
+
 void        dbus_address_entries_free     (DBusAddressEntry  **entries);
 
-DBUS_EXPORT
+
 char* dbus_address_escape_value   (const char *value);
-DBUS_EXPORT
+
 char* dbus_address_unescape_value (const char *value,
                                    DBusError  *error);
 

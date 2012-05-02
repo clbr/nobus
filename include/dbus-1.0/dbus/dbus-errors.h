@@ -61,26 +61,26 @@ struct DBusError
 
 #define DBUS_ERROR_INIT { NULL, NULL, TRUE, 0, 0, 0, 0, NULL }
 
-DBUS_EXPORT
+
 void        dbus_error_init      (DBusError       *error);
-DBUS_EXPORT
+
 void        dbus_error_free      (DBusError       *error);
-DBUS_EXPORT
+
 void        dbus_set_error       (DBusError       *error,
                                   const char      *name,
                                   const char      *message,
                                   ...);
-DBUS_EXPORT
+
 void        dbus_set_error_const (DBusError       *error,
                                   const char      *name,
                                   const char      *message);
-DBUS_EXPORT
+
 void        dbus_move_error      (DBusError       *src,
                                   DBusError       *dest);
-DBUS_EXPORT
+
 dbus_bool_t dbus_error_has_name  (const DBusError *error,
                                   const char      *name);
-DBUS_EXPORT
+
 dbus_bool_t dbus_error_is_set    (const DBusError *error);
 
 /** @} */

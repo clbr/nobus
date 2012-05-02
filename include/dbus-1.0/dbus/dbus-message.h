@@ -66,239 +66,239 @@ struct DBusMessageIter
   void *pad3;           /**< Don't use this */
 };
 
-DBUS_EXPORT
+
 DBusMessage* dbus_message_new               (int          message_type);
-DBUS_EXPORT
+
 DBusMessage* dbus_message_new_method_call   (const char  *bus_name,
                                              const char  *path,
                                              const char  *interface,
                                              const char  *method);
-DBUS_EXPORT
+
 DBusMessage* dbus_message_new_method_return (DBusMessage *method_call);
-DBUS_EXPORT
+
 DBusMessage* dbus_message_new_signal        (const char  *path,
                                              const char  *interface,
                                              const char  *name);
-DBUS_EXPORT
+
 DBusMessage* dbus_message_new_error         (DBusMessage *reply_to,
                                              const char  *error_name,
                                              const char  *error_message);
-DBUS_EXPORT
+
 DBusMessage* dbus_message_new_error_printf  (DBusMessage *reply_to,
                                              const char  *error_name,
                                              const char  *error_format,
 					     ...);
 
-DBUS_EXPORT
+
 DBusMessage* dbus_message_copy              (const DBusMessage *message);
 
-DBUS_EXPORT
+
 DBusMessage*  dbus_message_ref              (DBusMessage   *message);
-DBUS_EXPORT
+
 void          dbus_message_unref            (DBusMessage   *message);
-DBUS_EXPORT
+
 int           dbus_message_get_type         (DBusMessage   *message);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_set_path         (DBusMessage   *message,
                                              const char    *object_path);
-DBUS_EXPORT
+
 const char*   dbus_message_get_path         (DBusMessage   *message);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_has_path         (DBusMessage   *message, 
                                              const char    *object_path);  
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_set_interface    (DBusMessage   *message,
                                              const char    *interface);       
-DBUS_EXPORT
+
 const char*   dbus_message_get_interface    (DBusMessage   *message);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_has_interface    (DBusMessage   *message, 
                                              const char    *interface);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_set_member       (DBusMessage   *message,
                                              const char    *member);
-DBUS_EXPORT
+
 const char*   dbus_message_get_member       (DBusMessage   *message);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_has_member       (DBusMessage   *message, 
                                              const char    *member);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_set_error_name   (DBusMessage   *message,
                                              const char    *name);
-DBUS_EXPORT
+
 const char*   dbus_message_get_error_name   (DBusMessage   *message);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_set_destination  (DBusMessage   *message,
                                              const char    *destination);
-DBUS_EXPORT
+
 const char*   dbus_message_get_destination  (DBusMessage   *message);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_set_sender       (DBusMessage   *message,
                                              const char    *sender);
-DBUS_EXPORT
+
 const char*   dbus_message_get_sender       (DBusMessage   *message);
-DBUS_EXPORT
+
 const char*   dbus_message_get_signature    (DBusMessage   *message);
-DBUS_EXPORT
+
 void          dbus_message_set_no_reply     (DBusMessage   *message,
                                              dbus_bool_t    no_reply);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_get_no_reply     (DBusMessage   *message);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_is_method_call   (DBusMessage   *message,
                                              const char    *interface,
                                              const char    *method);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_is_signal        (DBusMessage   *message,
                                              const char    *interface,
                                              const char    *signal_name);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_is_error         (DBusMessage   *message,
                                              const char    *error_name);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_has_destination  (DBusMessage   *message,
                                              const char    *bus_name);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_has_sender       (DBusMessage   *message,
                                              const char    *unique_bus_name);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_has_signature    (DBusMessage   *message,
                                              const char    *signature);
-DBUS_EXPORT
+
 dbus_uint32_t dbus_message_get_serial       (DBusMessage   *message);
-DBUS_EXPORT
+
 void          dbus_message_set_serial       (DBusMessage   *message, 
                                              dbus_uint32_t  serial);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_set_reply_serial (DBusMessage   *message,
                                              dbus_uint32_t  reply_serial);
-DBUS_EXPORT
+
 dbus_uint32_t dbus_message_get_reply_serial (DBusMessage   *message);
 
-DBUS_EXPORT
+
 void          dbus_message_set_auto_start   (DBusMessage   *message,
                                              dbus_bool_t    auto_start);
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_get_auto_start   (DBusMessage   *message);
 
-DBUS_EXPORT
+
 dbus_bool_t   dbus_message_get_path_decomposed (DBusMessage   *message,
                                                 char        ***path);
 
-DBUS_EXPORT
+
 dbus_bool_t dbus_message_append_args          (DBusMessage     *message,
 					       int              first_arg_type,
 					       ...);
-DBUS_EXPORT
+
 dbus_bool_t dbus_message_append_args_valist   (DBusMessage     *message,
 					       int              first_arg_type,
 					       va_list          var_args);
-DBUS_EXPORT
+
 dbus_bool_t dbus_message_get_args             (DBusMessage     *message,
 					       DBusError       *error,
 					       int              first_arg_type,
 					       ...);
-DBUS_EXPORT
+
 dbus_bool_t dbus_message_get_args_valist      (DBusMessage     *message,
 					       DBusError       *error,
 					       int              first_arg_type,
 					       va_list          var_args);
 
-DBUS_EXPORT
+
 dbus_bool_t dbus_message_contains_unix_fds    (DBusMessage *message);
 
-DBUS_EXPORT
+
 dbus_bool_t dbus_message_iter_init             (DBusMessage     *message,
                                                 DBusMessageIter *iter);
-DBUS_EXPORT
+
 dbus_bool_t dbus_message_iter_has_next         (DBusMessageIter *iter);
-DBUS_EXPORT
+
 dbus_bool_t dbus_message_iter_next             (DBusMessageIter *iter);
-DBUS_EXPORT
+
 char*       dbus_message_iter_get_signature    (DBusMessageIter *iter);
-DBUS_EXPORT
+
 int         dbus_message_iter_get_arg_type     (DBusMessageIter *iter);
-DBUS_EXPORT
+
 int         dbus_message_iter_get_element_type (DBusMessageIter *iter);
-DBUS_EXPORT
+
 void        dbus_message_iter_recurse          (DBusMessageIter *iter,
                                                 DBusMessageIter *sub);
-DBUS_EXPORT
+
 void        dbus_message_iter_get_basic        (DBusMessageIter *iter,
                                                 void            *value);
 #ifndef DBUS_DISABLE_DEPRECATED
 /* This function returns the wire protocol size of the array in bytes,
  * you do not want to know that probably
  */
-DBUS_EXPORT
+
 DBUS_DEPRECATED int         dbus_message_iter_get_array_len    (DBusMessageIter *iter);
 #endif
-DBUS_EXPORT
+
 void        dbus_message_iter_get_fixed_array  (DBusMessageIter *iter,
                                                 void            *value,
                                                 int             *n_elements);
 
 
-DBUS_EXPORT
+
 void        dbus_message_iter_init_append        (DBusMessage     *message,
                                                   DBusMessageIter *iter);
-DBUS_EXPORT
+
 dbus_bool_t dbus_message_iter_append_basic       (DBusMessageIter *iter,
                                                   int              type,
                                                   const void      *value);
-DBUS_EXPORT
+
 dbus_bool_t dbus_message_iter_append_fixed_array (DBusMessageIter *iter,
                                                   int              element_type,
                                                   const void      *value,
                                                   int              n_elements);
-DBUS_EXPORT
+
 dbus_bool_t dbus_message_iter_open_container     (DBusMessageIter *iter,
                                                   int              type,
                                                   const char      *contained_signature,
                                                   DBusMessageIter *sub);
-DBUS_EXPORT
+
 dbus_bool_t dbus_message_iter_close_container    (DBusMessageIter *iter,
                                                   DBusMessageIter *sub);
-DBUS_EXPORT
+
 void        dbus_message_iter_abandon_container  (DBusMessageIter *iter,
                                                   DBusMessageIter *sub);
 
-DBUS_EXPORT
+
 void dbus_message_lock    (DBusMessage  *message);
 
-DBUS_EXPORT
+
 dbus_bool_t  dbus_set_error_from_message  (DBusError    *error,
                                            DBusMessage  *message);
 
 
-DBUS_EXPORT
+
 dbus_bool_t dbus_message_allocate_data_slot (dbus_int32_t     *slot_p);
-DBUS_EXPORT
+
 void        dbus_message_free_data_slot     (dbus_int32_t     *slot_p);
-DBUS_EXPORT
+
 dbus_bool_t dbus_message_set_data           (DBusMessage      *message,
                                              dbus_int32_t      slot,
                                              void             *data,
                                              DBusFreeFunction  free_data_func);
-DBUS_EXPORT
+
 void*       dbus_message_get_data           (DBusMessage      *message,
                                              dbus_int32_t      slot);
 
-DBUS_EXPORT
+
 int         dbus_message_type_from_string (const char *type_str);
-DBUS_EXPORT
+
 const char* dbus_message_type_to_string   (int type);
 
-DBUS_EXPORT
+
 dbus_bool_t  dbus_message_marshal   (DBusMessage  *msg,
                                      char        **marshalled_data_p,
                                      int          *len_p);
-DBUS_EXPORT
+
 DBusMessage* dbus_message_demarshal (const char *str,
                                      int         len,
                                      DBusError  *error);
 
-DBUS_EXPORT
+
 int          dbus_message_demarshal_bytes_needed (const char *str, 
                                                   int len);
 
