@@ -4,6 +4,8 @@
 
 static const char *empty = "";
 
+static GError gerr = {.domain = 0, .code = G_FILE_ERROR_NOENT, .message = "" };
+
 dbus_bool_t dbus_parse_address (const char *a,
  DBusAddressEntry ***b,
  int *c,
@@ -303,105 +305,176 @@ dbus_bool_t dbus_connection_unregister_object_path (DBusConnection *connection,
 
 dbus_bool_t dbus_connection_get_object_path_data (DBusConnection *connection,
  const char *path,
- void **data_p);
+ void **data_p) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_connection_list_registered (DBusConnection *connection,
  const char *parent_path,
- char ***child_entries);
+ char ***child_entries) {
+	return FALSE;
+}
 
 dbus_bool_t dbus_connection_get_unix_fd (DBusConnection *connection,
- int *fd);
+ int *fd) {
+	return FALSE;
+}
 
 dbus_bool_t dbus_connection_get_socket (DBusConnection *connection,
- int *fd);
+ int *fd) {
+	return FALSE;
+}
 
-DBUS_DEPRECATED int dbus_watch_get_fd (DBusWatch *watch);
+int dbus_watch_get_fd (DBusWatch *watch) {
+	return -1;
+}
 
-int dbus_watch_get_unix_fd (DBusWatch *watch);
+int dbus_watch_get_unix_fd (DBusWatch *watch) {
+	return -1;
+}
 
-int dbus_watch_get_socket (DBusWatch *watch);
+int dbus_watch_get_socket (DBusWatch *watch) {
+	return -1;
+}
 
-unsigned int dbus_watch_get_flags (DBusWatch *watch);
+unsigned int dbus_watch_get_flags (DBusWatch *watch) {
+	return 0;
+}
 
-void* dbus_watch_get_data (DBusWatch *watch);
+void* dbus_watch_get_data (DBusWatch *watch) {
+	return NULL;
+}
 
 dbus_bool_t dbus_watch_handle (DBusWatch *watch,
- unsigned int flags);
+ unsigned int flags) {
+	return TRUE;
+}
 
-dbus_bool_t dbus_watch_get_enabled (DBusWatch *watch);
+dbus_bool_t dbus_watch_get_enabled (DBusWatch *watch) {
+	return TRUE;
+}
 
-int dbus_timeout_get_interval (DBusTimeout *timeout);
+int dbus_timeout_get_interval (DBusTimeout *timeout) {
+	return 0;
+}
 
-void* dbus_timeout_get_data (DBusTimeout *timeout);
+void* dbus_timeout_get_data (DBusTimeout *timeout) {
+	return NULL;
+}
 
-dbus_bool_t dbus_timeout_handle (DBusTimeout *timeout);
+dbus_bool_t dbus_timeout_handle (DBusTimeout *timeout) {
+	return TRUE;
+}
 
-dbus_bool_t dbus_timeout_get_enabled (DBusTimeout *timeout);
+dbus_bool_t dbus_timeout_get_enabled (DBusTimeout *timeout) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_error_has_name (const DBusError *error,
- const char *name);
+ const char *name) {
+	return TRUE;
+}
 
-dbus_bool_t dbus_error_is_set (const DBusError *error);
+dbus_bool_t dbus_error_is_set (const DBusError *error) {
+	return TRUE;
+}
 
-GType dbus_g_connection_get_g_type (void) G_GNUC_CONST;
+GType dbus_g_connection_get_g_type() {
+	return 0;
+}
 
-GType dbus_g_message_get_g_type (void) G_GNUC_CONST;
+GType dbus_g_message_get_g_type() {
+	return 0;
+}
 
-DBusGConnection* dbus_g_connection_ref (DBusGConnection *connection);
+DBusGConnection* dbus_g_connection_ref (DBusGConnection *connection) {
+	return connection;
+}
 
-DBusGMessage* dbus_g_message_ref (DBusGMessage *message);
+DBusGMessage* dbus_g_message_ref (DBusGMessage *message) {
+	return message;
+}
 
-GQuark dbus_g_error_quark (void);
+GQuark dbus_g_error_quark() {
+	return 0;
+}
 
 gboolean dbus_g_error_has_name (GError *error,
- const char *name);
+ const char *name) {
+	return TRUE;
+}
 
-const char * dbus_g_error_get_name (GError *error);
+const char * dbus_g_error_get_name (GError *error) {
+	return empty;
+}
 
 DBusGConnection* dbus_g_connection_open (const gchar *address,
- GError **error);
+ GError **error) {
+	*error = &gerr;
+	return NULL;
+}
 
 DBusGConnection* dbus_g_bus_get (DBusBusType type,
- GError **error);
+ GError **error) {
+	return NULL;
+}
 
 GObject * dbus_g_connection_lookup_g_object (DBusGConnection *connection,
- const char *at_path);
+ const char *at_path) {
+	return NULL;
+}
 
-GType dbus_g_object_path_get_g_type (void) G_GNUC_CONST;
+GType dbus_g_object_path_get_g_type() {
+	return 0;
+}
 
-GType dbus_g_proxy_get_type (void) G_GNUC_CONST;
+GType dbus_g_proxy_get_type() {
+	return 0;
+}
 
 DBusGProxy* dbus_g_proxy_new_for_name (DBusGConnection *connection,
  const char *name,
  const char *path,
- const char *interface);
+ const char *interface) {
+	return NULL;
+}
 
 DBusGProxy* dbus_g_proxy_new_for_name_owner (DBusGConnection *connection,
  const char *name,
  const char *path,
  const char *interface,
- GError **error);
+ GError **error) {
+	return NULL;
+}
 
 DBusGProxy* dbus_g_proxy_new_from_proxy (DBusGProxy *proxy,
  const char *interface,
- const char *path_name);
+ const char *path_name) {
+	return NULL;
+}
 
 DBusGProxy* dbus_g_proxy_new_for_peer (DBusGConnection *connection,
  const char *path_name,
- const char *interface_name);
+ const char *interface_name) {
+	return NULL;
+}
 
 gboolean dbus_g_proxy_call (DBusGProxy *proxy,
  const char *method,
  GError **error,
  GType first_arg_type,
- ...);
+ ...) {
+	return TRUE;
+}
 
 gboolean dbus_g_proxy_call_with_timeout (DBusGProxy *proxy,
  const char *method,
  int timeout,
  GError **error,
  GType first_arg_type,
- ...);
+ ...) {
+	return TRUE;
+}
 
 DBusGProxyCall * dbus_g_proxy_begin_call (DBusGProxy *proxy,
  const char *method,
@@ -409,7 +482,9 @@ DBusGProxyCall * dbus_g_proxy_begin_call (DBusGProxy *proxy,
  gpointer data,
  GDestroyNotify destroy,
  GType first_arg_type,
- ...);
+ ...) {
+	return NULL;
+}
 
 DBusGProxyCall * dbus_g_proxy_begin_call_with_timeout (DBusGProxy *proxy,
  const char *method,
@@ -418,25 +493,35 @@ DBusGProxyCall * dbus_g_proxy_begin_call_with_timeout (DBusGProxy *proxy,
  GDestroyNotify destroy,
  int timeout,
  GType first_arg_type,
- ...);
+ ...) {
+	return NULL;
+}
 
 gboolean dbus_g_proxy_end_call (DBusGProxy *proxy,
  DBusGProxyCall *call,
  GError **error,
  GType first_arg_type,
- ...);
+ ...) {
+	return TRUE;
+}
 
-const char* dbus_g_proxy_get_path (DBusGProxy *proxy);
+const char* dbus_g_proxy_get_path (DBusGProxy *proxy) {
+	return empty;
+}
 
-const char* dbus_g_proxy_get_bus_name (DBusGProxy *proxy);
+const char* dbus_g_proxy_get_bus_name (DBusGProxy *proxy) {
+	return empty;
+}
 
-const char* dbus_g_proxy_get_interface (DBusGProxy *proxy);
+const char* dbus_g_proxy_get_interface (DBusGProxy *proxy) {
+	return empty;
+}
 
-GType dbus_connection_get_g_type (void) G_GNUC_CONST;
+GType dbus_connection_get_g_type (void);
 
-GType dbus_message_get_g_type (void) G_GNUC_CONST;
+GType dbus_message_get_g_type (void);
 
-GType dbus_pending_call_get_g_type (void) G_GNUC_CONST;
+GType dbus_pending_call_get_g_type (void);
 
 DBusConnection* dbus_g_connection_get_connection (DBusGConnection *gconnection);
 
