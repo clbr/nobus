@@ -1,5 +1,6 @@
 #include "include/dbus-1.0/dbus/dbus.h"
 #include "include/dbus-1.0/dbus/dbus-glib.h"
+#include <string.h>
 
 static const char *empty = "";
 
@@ -55,55 +56,85 @@ const char* dbus_bus_get_unique_name (DBusConnection *connection) {
 unsigned long dbus_bus_get_unix_user (DBusConnection *connection,
  const char *name,
  DBusError *error) {
-	return -1;
+	return 0;
 }
 
 char* dbus_bus_get_id (DBusConnection *connection,
- DBusError *error);
+ DBusError *error) {
+	return strdup(empty);
+}
 
 int dbus_bus_request_name (DBusConnection *connection,
  const char *name,
  unsigned int flags,
- DBusError *error);
+ DBusError *error) {
+	return DBUS_REQUEST_NAME_REPLY_PRIMARY_OWNER;
+}
 
 int dbus_bus_release_name (DBusConnection *connection,
  const char *name,
- DBusError *error);
+ DBusError *error) {
+	return DBUS_RELEASE_NAME_REPLY_RELEASED;
+}
 
 dbus_bool_t dbus_bus_name_has_owner (DBusConnection *connection,
  const char *name,
- DBusError *error);
+ DBusError *error) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_bus_start_service_by_name (DBusConnection *connection,
  const char *name,
  dbus_uint32_t flags,
  dbus_uint32_t *reply,
- DBusError *error);
+ DBusError *error) {
+	return TRUE;
+}
 
 DBusConnection* dbus_connection_open (const char *address,
- DBusError *error);
+ DBusError *error) {
+	return NULL;
+}
 
 DBusConnection* dbus_connection_open_private (const char *address,
- DBusError *error);
+ DBusError *error) {
+	return NULL;
+}
 
-DBusConnection* dbus_connection_ref (DBusConnection *connection);
+DBusConnection* dbus_connection_ref (DBusConnection *connection) {
+	return connection;
+}
 
-dbus_bool_t dbus_connection_get_is_connected (DBusConnection *connection);
+dbus_bool_t dbus_connection_get_is_connected (DBusConnection *connection) {
+	return TRUE;
+}
 
-dbus_bool_t dbus_connection_get_is_authenticated (DBusConnection *connection);
+dbus_bool_t dbus_connection_get_is_authenticated (DBusConnection *connection) {
+	return TRUE;
+}
 
-dbus_bool_t dbus_connection_get_is_anonymous (DBusConnection *connection);
+dbus_bool_t dbus_connection_get_is_anonymous (DBusConnection *connection) {
+	return TRUE;
+}
 
-char* dbus_connection_get_server_id (DBusConnection *connection);
+char* dbus_connection_get_server_id (DBusConnection *connection) {
+	return strdup(empty);
+}
 
 dbus_bool_t dbus_connection_can_send_type (DBusConnection *connection,
- int type);
+ int type) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_connection_read_write_dispatch (DBusConnection *connection,
- int timeout_milliseconds);
+ int timeout_milliseconds) {
+	return TRUE;
+}
 
 dbus_bool_t dbus_connection_read_write (DBusConnection *connection,
- int timeout_milliseconds);
+ int timeout_milliseconds) {
+	return TRUE;
+}
 
 DBusMessage* dbus_connection_borrow_message (DBusConnection *connection);
 
