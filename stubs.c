@@ -412,21 +412,6 @@ dbus_bool_t dbus_pending_call_set_data (DBusPendingCall *pending,
  DBusFreeFunction free_data_func);
 void* dbus_pending_call_get_data (DBusPendingCall *pending,
  dbus_int32_t slot);
-extern "C" {
-}
- DBUS_TYPE_BYTE_AS_STRING \
- DBUS_TYPE_BYTE_AS_STRING \
- DBUS_TYPE_BYTE_AS_STRING \
- DBUS_TYPE_BYTE_AS_STRING \
- DBUS_TYPE_UINT32_AS_STRING \
- DBUS_TYPE_UINT32_AS_STRING \
- DBUS_TYPE_ARRAY_AS_STRING \
- DBUS_STRUCT_BEGIN_CHAR_AS_STRING \
- DBUS_TYPE_BYTE_AS_STRING \
- DBUS_TYPE_VARIANT_AS_STRING \
- DBUS_STRUCT_END_CHAR_AS_STRING
-{
-}
 DBusServer* dbus_server_listen (const char *address,
  DBusError *error);
 DBusServer* dbus_server_ref (DBusServer *server);
@@ -454,10 +439,6 @@ dbus_bool_t dbus_server_set_data (DBusServer *server,
  DBusFreeFunction free_data_func);
 void* dbus_server_get_data (DBusServer *server,
  int slot);
-extern "C" {
-}
-{
-}
 int dbus_signature_iter_get_current_type (const DBusSignatureIter *iter);
 char * dbus_signature_iter_get_signature (const DBusSignatureIter *iter);
 int dbus_signature_iter_get_element_type (const DBusSignatureIter *iter);
