@@ -29,8 +29,7 @@
 
 G_BEGIN_DECLS
 
-void dbus_set_g_error (GError **gerror,
- DBusError *derror);
+#define dbus_set_g_error(a,b) ((void)0)
 
 #define DBUS_TYPE_CONNECTION (dbus_connection_get_g_type ())
 #define DBUS_TYPE_MESSAGE (dbus_message_get_g_type ())
@@ -39,14 +38,10 @@ GType dbus_connection_get_g_type (void) G_GNUC_CONST;
 GType dbus_message_get_g_type (void) G_GNUC_CONST;
 GType dbus_pending_call_get_g_type (void) G_GNUC_CONST;
 
-void dbus_connection_setup_with_g_main (DBusConnection *connection,
- GMainContext *context);
-void dbus_server_setup_with_g_main (DBusServer *server,
- GMainContext *context);
+#define dbus_connection_setup_with_g_main(a,b) ((void)0)
+#define dbus_server_setup_with_g_main(a,b) ((void)0)
 
-void dbus_g_proxy_send (DBusGProxy *proxy,
- DBusMessage *message,
- dbus_uint32_t *client_serial);
+#define dbus_g_proxy_send(a,b,c) ((void)0)
 
 DBusConnection* dbus_g_connection_get_connection (DBusGConnection *gconnection);
 DBusGConnection* dbus_connection_get_g_connection (DBusConnection *connection);
@@ -62,8 +57,7 @@ gchar* dbus_g_method_get_sender (DBusGMethodInvocation *context);
 
 DBusMessage* dbus_g_method_get_reply (DBusGMethodInvocation *context);
 
-void dbus_g_method_send_reply (DBusGMethodInvocation *context,
- DBusMessage *reply);
+#define dbus_g_method_send_reply(a,b) ((void)0)
 
 G_END_DECLS
 

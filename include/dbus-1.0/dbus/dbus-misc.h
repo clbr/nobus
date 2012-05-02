@@ -40,9 +40,7 @@ DBUS_BEGIN_DECLS
 char* dbus_get_local_machine_id (void);
 
 
-void dbus_get_version (int *major_version_p,
- int *minor_version_p,
- int *micro_version_p);
+#define dbus_get_version (a, b, c) do { *a = 1; *b = 4; *c = 20; } while(0)
 
 /** @} */
 

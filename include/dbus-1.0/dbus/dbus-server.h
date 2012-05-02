@@ -54,9 +54,9 @@ DBusServer* dbus_server_listen (const char *address,
 
 DBusServer* dbus_server_ref (DBusServer *server);
 
-void dbus_server_unref (DBusServer *server);
+#define dbus_server_unref(a) ((void)0)
 
-void dbus_server_disconnect (DBusServer *server);
+#define dbus_server_disconnect(a) ((void)0)
 
 dbus_bool_t dbus_server_get_is_connected (DBusServer *server);
 
@@ -64,10 +64,7 @@ char* dbus_server_get_address (DBusServer *server);
 
 char* dbus_server_get_id (DBusServer *server);
 
-void dbus_server_set_new_connection_function (DBusServer *server,
- DBusNewConnectionFunction function,
- void *data,
- DBusFreeFunction free_data_function);
+#define dbus_server_set_new_connection_function(a,b,c,d) ((void)0)
 
 dbus_bool_t dbus_server_set_watch_functions (DBusServer *server,
  DBusAddWatchFunction add_function,
@@ -89,7 +86,7 @@ dbus_bool_t dbus_server_set_auth_mechanisms (DBusServer *server,
 
 dbus_bool_t dbus_server_allocate_data_slot (dbus_int32_t *slot_p);
 
-void dbus_server_free_data_slot (dbus_int32_t *slot_p);
+#define dbus_server_free_data_slot(a) ((void)0)
 
 dbus_bool_t dbus_server_set_data (DBusServer *server,
  int slot,

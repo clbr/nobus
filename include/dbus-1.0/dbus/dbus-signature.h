@@ -51,8 +51,7 @@ typedef struct
 } DBusSignatureIter;
 
 
-void dbus_signature_iter_init (DBusSignatureIter *iter,
- const char *signature);
+#define dbus_signature_iter_init(a,b) ((void)0)
 
 
 int dbus_signature_iter_get_current_type (const DBusSignatureIter *iter);
@@ -67,8 +66,7 @@ int dbus_signature_iter_get_element_type (const DBusSignatureIter *iter);
 dbus_bool_t dbus_signature_iter_next (DBusSignatureIter *iter);
 
 
-void dbus_signature_iter_recurse (const DBusSignatureIter *iter,
- DBusSignatureIter *subiter);
+#define dbus_signature_iter_recurse(a,b) ((void)0)
 
 
 dbus_bool_t dbus_signature_validate (const char *signature,

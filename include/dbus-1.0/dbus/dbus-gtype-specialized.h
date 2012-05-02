@@ -68,28 +68,21 @@ typedef struct {
  gpointer d;
 } DBusGTypeSpecializedAppendContext;
 
-void dbus_g_type_specialized_init_append (GValue *value, DBusGTypeSpecializedAppendContext *ctx);
+#define dbus_g_type_specialized_init_append(a,b) ((void)0)
 
-void dbus_g_type_specialized_collection_append (DBusGTypeSpecializedAppendContext *ctx, GValue *elt);
+#define dbus_g_type_specialized_collection_append(a,b) ((void)0)
 
-void dbus_g_type_specialized_collection_end_append (DBusGTypeSpecializedAppendContext *ctx);
+#define dbus_g_type_specialized_collection_end_append(a) ((void)0)
 
-void dbus_g_type_specialized_map_append (DBusGTypeSpecializedAppendContext *ctx,
- GValue *key,
- GValue *val);
-
+#define dbus_g_type_specialized_map_append(a,b,c) ((void)0)
 
 gboolean dbus_g_type_collection_get_fixed (GValue *value,
  gpointer *data,
  guint *len);
 
-void dbus_g_type_collection_value_iterate (const GValue *value,
- DBusGTypeSpecializedCollectionIterator iterator,
- gpointer user_data);
+#define dbus_g_type_collection_value_iterate(a,b,c) ((void)0)
 
-void dbus_g_type_map_value_iterate (const GValue *value,
- DBusGTypeSpecializedMapIterator iterator,
- gpointer user_data);
+#define dbus_g_type_map_value_iterate(a,b,c) ((void)0)
 
 gboolean dbus_g_type_struct_get_member (const GValue *value,
  guint member,
@@ -150,21 +143,15 @@ typedef struct {
  DBusGTypeSpecializedStructSetMember set_member;
 } DBusGTypeSpecializedStructVtable;
 
-void dbus_g_type_specialized_init (void);
+#define dbus_g_type_specialized_init() ((void)0)
 
-void dbus_g_type_register_collection (const char *name,
- const DBusGTypeSpecializedCollectionVtable *vtable,
- guint flags);
+#define dbus_g_type_register_collection(a,b,c) ((void)0)
 
-void dbus_g_type_register_map (const char *name,
- const DBusGTypeSpecializedMapVtable *vtable,
- guint flags);
+#define dbus_g_type_register_map(a,b,c) ((void)0)
 const DBusGTypeSpecializedMapVtable* dbus_g_type_map_peek_vtable (GType map_type);
 const DBusGTypeSpecializedCollectionVtable* dbus_g_type_collection_peek_vtable (GType collection_type);
 
-void dbus_g_type_register_struct (const char *name,
- const DBusGTypeSpecializedStructVtable *vtable,
- guint flags);
+#define dbus_g_type_register_struct(a,b,c) ((void)0)
 
 const DBusGTypeSpecializedMapVtable* dbus_g_type_map_peek_vtable (GType map_type);
 const DBusGTypeSpecializedCollectionVtable* dbus_g_type_collection_peek_vtable (GType collection_type);

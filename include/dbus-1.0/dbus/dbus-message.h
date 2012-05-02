@@ -95,7 +95,7 @@ DBusMessage* dbus_message_copy (const DBusMessage *message);
 
 DBusMessage* dbus_message_ref (DBusMessage *message);
 
-void dbus_message_unref (DBusMessage *message);
+#define dbus_message_unref(a) ((void)0)
 
 int dbus_message_get_type (DBusMessage *message);
 
@@ -140,8 +140,7 @@ const char* dbus_message_get_sender (DBusMessage *message);
 
 const char* dbus_message_get_signature (DBusMessage *message);
 
-void dbus_message_set_no_reply (DBusMessage *message,
- dbus_bool_t no_reply);
+#define dbus_message_set_no_reply(a,b) ((void)0)
 
 dbus_bool_t dbus_message_get_no_reply (DBusMessage *message);
 
@@ -167,8 +166,7 @@ dbus_bool_t dbus_message_has_signature (DBusMessage *message,
 
 dbus_uint32_t dbus_message_get_serial (DBusMessage *message);
 
-void dbus_message_set_serial (DBusMessage *message,
- dbus_uint32_t serial);
+#define dbus_message_set_serial(a,b) ((void)0)
 
 dbus_bool_t dbus_message_set_reply_serial (DBusMessage *message,
  dbus_uint32_t reply_serial);
@@ -176,8 +174,7 @@ dbus_bool_t dbus_message_set_reply_serial (DBusMessage *message,
 dbus_uint32_t dbus_message_get_reply_serial (DBusMessage *message);
 
 
-void dbus_message_set_auto_start (DBusMessage *message,
- dbus_bool_t auto_start);
+#define dbus_message_set_auto_start(a,b) ((void)0)
 
 dbus_bool_t dbus_message_get_auto_start (DBusMessage *message);
 
@@ -221,11 +218,9 @@ int dbus_message_iter_get_arg_type (DBusMessageIter *iter);
 
 int dbus_message_iter_get_element_type (DBusMessageIter *iter);
 
-void dbus_message_iter_recurse (DBusMessageIter *iter,
- DBusMessageIter *sub);
+#define dbus_message_iter_recurse(a,b) ((void)0)
 
-void dbus_message_iter_get_basic (DBusMessageIter *iter,
- void *value);
+#define dbus_message_iter_get_basic(a,b) ((void)0)
 #ifndef DBUS_DISABLE_DEPRECATED
 /* This function returns the wire protocol size of the array in bytes,
  * you do not want to know that probably
@@ -234,14 +229,10 @@ void dbus_message_iter_get_basic (DBusMessageIter *iter,
 DBUS_DEPRECATED int dbus_message_iter_get_array_len (DBusMessageIter *iter);
 #endif
 
-void dbus_message_iter_get_fixed_array (DBusMessageIter *iter,
- void *value,
- int *n_elements);
+#define dbus_message_iter_get_fixed_array(a,b,c) ((void)0)
 
 
-
-void dbus_message_iter_init_append (DBusMessage *message,
- DBusMessageIter *iter);
+#define dbus_message_iter_init_append(a,b) ((void)0)
 
 dbus_bool_t dbus_message_iter_append_basic (DBusMessageIter *iter,
  int type,
@@ -260,11 +251,10 @@ dbus_bool_t dbus_message_iter_open_container (DBusMessageIter *iter,
 dbus_bool_t dbus_message_iter_close_container (DBusMessageIter *iter,
  DBusMessageIter *sub);
 
-void dbus_message_iter_abandon_container (DBusMessageIter *iter,
- DBusMessageIter *sub);
+#define dbus_message_iter_abandon_container(a,b) ((void)0)
 
 
-void dbus_message_lock (DBusMessage *message);
+#define dbus_message_lock(a) ((void)0)
 
 
 dbus_bool_t dbus_set_error_from_message (DBusError *error,
@@ -274,7 +264,7 @@ dbus_bool_t dbus_set_error_from_message (DBusError *error,
 
 dbus_bool_t dbus_message_allocate_data_slot (dbus_int32_t *slot_p);
 
-void dbus_message_free_data_slot (dbus_int32_t *slot_p);
+#define dbus_message_free_data_slot(a) ((void)0)
 
 dbus_bool_t dbus_message_set_data (DBusMessage *message,
  dbus_int32_t slot,

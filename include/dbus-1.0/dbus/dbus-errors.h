@@ -62,21 +62,15 @@ struct DBusError
 #define DBUS_ERROR_INIT { NULL, NULL, TRUE, 0, 0, 0, 0, NULL }
 
 
-void dbus_error_init (DBusError *error);
+#define dbus_error_init(a) ((void)0)
 
-void dbus_error_free (DBusError *error);
+#define dbus_error_free(a) ((void)0)
 
-void dbus_set_error (DBusError *error,
- const char *name,
- const char *message,
- ...);
+#define dbus_set_error(a,b,c,...) ((void)0)
 
-void dbus_set_error_const (DBusError *error,
- const char *name,
- const char *message);
+#define dbus_set_error_const(a,b,c) ((void)0)
 
-void dbus_move_error (DBusError *src,
- DBusError *dest);
+#define dbus_move_error(a,b) ((void)0)
 
 dbus_bool_t dbus_error_has_name (const DBusError *error,
  const char *name);

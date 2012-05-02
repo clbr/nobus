@@ -49,11 +49,11 @@ GType dbus_g_message_get_g_type (void) G_GNUC_CONST;
 
 
 DBusGConnection* dbus_g_connection_ref (DBusGConnection *connection);
-void dbus_g_connection_unref (DBusGConnection *connection);
+#define dbus_g_connection_unref(a) ((void)0)
 DBusGMessage* dbus_g_message_ref (DBusGMessage *message);
-void dbus_g_message_unref (DBusGMessage *message);
+#define dbus_g_message_unref(a) ((void)0)
 
-void dbus_g_connection_flush (DBusGConnection *connection);
+#define dbus_g_connection_flush(a) ((void)0)
 
 GQuark dbus_g_error_quark (void);
 #define DBUS_GERROR dbus_g_error_quark ()
@@ -99,7 +99,7 @@ gboolean dbus_g_error_has_name (GError *error,
  const char *name);
 const char * dbus_g_error_get_name (GError *error);
 
-void dbus_g_thread_init (void);
+#define dbus_g_thread_init() ((void)0)
 
 DBusGConnection* dbus_g_connection_open (const gchar *address,
  GError **error);
@@ -150,16 +150,11 @@ struct _DBusGObjectInfo
  const char *exported_properties;
 };
 
-void dbus_g_object_type_install_info (GType object_type,
- const DBusGObjectInfo *info);
+#define dbus_g_object_type_install_info(a,b) ((void)0)
 
-void dbus_g_error_domain_register (GQuark domain,
- const char * default_iface,
- GType code_enum);
+#define dbus_g_error_domain_register(a,b,c) ((void)0)
 
-void dbus_g_connection_register_g_object (DBusGConnection *connection,
- const char *at_path,
- GObject *object);
+#define dbus_g_connection_register_g_object(a,b,c) ((void)0)
 GObject * dbus_g_connection_lookup_g_object (DBusGConnection *connection,
  const char *at_path);
 
@@ -183,13 +178,8 @@ GObject * dbus_g_connection_lookup_g_object (DBusGConnection *connection,
 GType dbus_g_object_path_get_g_type (void) G_GNUC_CONST;
 #define DBUS_TYPE_G_OBJECT_PATH (dbus_g_object_path_get_g_type ())
 
-void dbus_g_object_register_marshaller (GClosureMarshal marshaller,
- GType rettype,
- ...);
-void dbus_g_object_register_marshaller_array(GClosureMarshal marshaller,
- GType rettype,
- guint n_types,
- const GType* types);
+#define dbus_g_object_register_marshaller(a,b,...) ((void)0)
+#define dbus_g_object_register_marshaller_array(a,b,c,d) ((void)0)
 
 typedef struct _DBusGProxy DBusGProxy;
 typedef struct _DBusGProxyClass DBusGProxyClass;
@@ -233,22 +223,11 @@ DBusGProxy* dbus_g_proxy_new_for_peer (DBusGConnection *connection,
  const char *path_name,
  const char *interface_name);
 
-void dbus_g_proxy_set_interface (DBusGProxy *proxy,
- const char *interface_name);
-void dbus_g_proxy_add_signal (DBusGProxy *proxy,
- const char *signal_name,
- GType first_type,
- ...);
+#define dbus_g_proxy_set_interface(a,b) ((void)0)
+#define dbus_g_proxy_add_signal(a,b,c,...) ((void)0)
 
-void dbus_g_proxy_connect_signal (DBusGProxy *proxy,
- const char *signal_name,
- GCallback handler,
- void *data,
- GClosureNotify free_data_func);
-void dbus_g_proxy_disconnect_signal (DBusGProxy *proxy,
- const char *signal_name,
- GCallback handler,
- void *data);
+#define dbus_g_proxy_connect_signal(a,b,c,d,e) ((void)0)
+#define dbus_g_proxy_disconnect_signal(a,b,c,d) ((void)0)
 
 gboolean dbus_g_proxy_call (DBusGProxy *proxy,
  const char *method,
@@ -263,10 +242,7 @@ gboolean dbus_g_proxy_call_with_timeout (DBusGProxy *proxy,
  GType first_arg_type,
  ...);
 
-void dbus_g_proxy_call_no_reply (DBusGProxy *proxy,
- const char *method,
- GType first_arg_type,
- ...);
+#define dbus_g_proxy_call_no_reply(a,b,c,...) ((void)0)
 
 DBusGProxyCall * dbus_g_proxy_begin_call (DBusGProxy *proxy,
  const char *method,
@@ -289,8 +265,7 @@ gboolean dbus_g_proxy_end_call (DBusGProxy *proxy,
  GError **error,
  GType first_arg_type,
  ...);
-void dbus_g_proxy_cancel_call (DBusGProxy *proxy,
- DBusGProxyCall *call);
+#define dbus_g_proxy_cancel_call(a,b) ((void)0)
 
 const char* dbus_g_proxy_get_path (DBusGProxy *proxy);
 
@@ -300,9 +275,9 @@ const char* dbus_g_proxy_get_interface (DBusGProxy *proxy);
 
 typedef struct _DBusGMethodInvocation DBusGMethodInvocation;
 
-void dbus_g_method_return (DBusGMethodInvocation *context, ...);
+#define dbus_g_method_return(a,...) ((void)0)
 
-void dbus_g_method_return_error (DBusGMethodInvocation *context, GError *error);
+#define dbus_g_method_return_error(a,b) ((void)0)
 
 /* Probably possible to replace this with a closure */
 typedef struct {

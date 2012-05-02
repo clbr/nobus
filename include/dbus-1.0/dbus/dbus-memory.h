@@ -53,18 +53,18 @@ DBUS_ALLOC_SIZE(2)
 void* dbus_realloc (void *memory,
  size_t bytes);
 
-void dbus_free (void *memory);
+#define dbus_free(a) ((void)0)
 
 #define dbus_new(type, count) ((type*)dbus_malloc (sizeof (type) * (count)))
 #define dbus_new0(type, count) ((type*)dbus_malloc0 (sizeof (type) * (count)))
 
 
-void dbus_free_string_array (char **str_array);
+#define dbus_free_string_array(a) ((void)0)
 
 typedef void (* DBusFreeFunction) (void *memory);
 
 
-void dbus_shutdown (void);
+#define dbus_shutdown() ((void)0)
 
 /** @} */
 

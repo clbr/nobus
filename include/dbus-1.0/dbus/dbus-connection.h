@@ -301,19 +301,16 @@ void* dbus_connection_get_data (DBusConnection *connection,
 
 long dbus_connection_get_max_message_size (DBusConnection *connection);
 
-void dbus_connection_set_max_received_size (DBusConnection *connection,
- long size);
+#define dbus_connection_set_max_received_size(a,b) ((void)0)
 
 long dbus_connection_get_max_received_size (DBusConnection *connection);
 
 
-void dbus_connection_set_max_message_unix_fds (DBusConnection *connection,
- long n);
+#define dbus_connection_set_max_message_unix_fds(a,b) ((void)0)
 
 long dbus_connection_get_max_message_unix_fds (DBusConnection *connection);
 
-void dbus_connection_set_max_received_unix_fds(DBusConnection *connection,
- long n);
+#define dbus_connection_set_max_received_unix_fds(a,b) ((void)0)
 
 long dbus_connection_get_max_received_unix_fds(DBusConnection *connection);
 
@@ -325,13 +322,9 @@ long dbus_connection_get_outgoing_unix_fds (DBusConnection *connection);
 
 DBusPreallocatedSend* dbus_connection_preallocate_send (DBusConnection *connection);
 
-void dbus_connection_free_preallocated_send (DBusConnection *connection,
- DBusPreallocatedSend *preallocated);
+#define dbus_connection_free_preallocated_send(a,b) ((void)0)
 
-void dbus_connection_send_preallocated (DBusConnection *connection,
- DBusPreallocatedSend *preallocated,
- DBusMessage *message,
- dbus_uint32_t *client_serial);
+#define dbus_connection_send_preallocated(a,b,c,d) ((void)0)
 
 
 /* Object tree functionality */
@@ -436,9 +429,7 @@ unsigned int dbus_watch_get_flags (DBusWatch *watch);
 
 void* dbus_watch_get_data (DBusWatch *watch);
 
-void dbus_watch_set_data (DBusWatch *watch,
- void *data,
- DBusFreeFunction free_data_function);
+#define dbus_watch_set_data(a, b, c) ((void)0)
 
 dbus_bool_t dbus_watch_handle (DBusWatch *watch,
  unsigned int flags);
@@ -457,9 +448,7 @@ int dbus_timeout_get_interval (DBusTimeout *timeout);
 
 void* dbus_timeout_get_data (DBusTimeout *timeout);
 
-void dbus_timeout_set_data (DBusTimeout *timeout,
- void *data,
- DBusFreeFunction free_data_function);
+#define dbus_timeout_set_data(a,b,c) ((void)0)
 
 dbus_bool_t dbus_timeout_handle (DBusTimeout *timeout);
 
